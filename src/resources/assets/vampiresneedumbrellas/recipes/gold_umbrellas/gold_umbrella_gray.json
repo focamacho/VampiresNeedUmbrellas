@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " CC",
+    " RC",
+    "R  "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:carpet",
+      "data": 7
+    },
+    "R": {
+      "item": "vampiresneedumbrellas:gold_umbrella_rod",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "vampiresneedumbrellas:gray_gold_umbrella"
+  }
+}
