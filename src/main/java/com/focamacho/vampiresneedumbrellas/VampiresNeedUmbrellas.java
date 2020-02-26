@@ -1,7 +1,5 @@
 package com.focamacho.vampiresneedumbrellas;
 
-import org.apache.logging.log4j.Logger;
-
 import com.focamacho.vampiresneedumbrellas.handlers.ModObjects;
 import com.focamacho.vampiresneedumbrellas.handlers.RegistryHandler;
 import com.focamacho.vampiresneedumbrellas.proxy.CommonProxy;
@@ -21,9 +19,7 @@ public class VampiresNeedUmbrellas
 {
     public static final String MODID = "vampiresneedumbrellas";
     public static final String NAME = "Vampires Need Umbrellas";
-    public static final String VERSION = "1.0";
-
-    private static Logger logger;
+    public static final String VERSION = "1.2";
 
     @SidedProxy(clientSide = "com.focamacho.vampiresneedumbrellas.proxy.ClientProxy", serverSide = "com.focamacho.vampiresneedumbrellas.proxy.CommonProxy")
 	public static CommonProxy proxy;

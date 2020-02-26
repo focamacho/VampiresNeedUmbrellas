@@ -43,8 +43,7 @@ public class ItemUmbrella extends Item {
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if(canApplyEffect(entityIn)) {
 			EntityPlayer player = (EntityPlayer) entityIn;
-			int slot = player.inventory.getSlotFor(stack);
-			if((ConfigUmbrella.umbrellaMainHand && slot == player.inventory.currentItem) || (ConfigUmbrella.umbrellaOffHand && slot == -1)) {
+			if((ConfigUmbrella.umbrellaMainHand && player.getHeldItemMainhand().equals(stack)) || (ConfigUmbrella.umbrellaOffHand && player.getHeldItemOffhand().equals(stack))) {
 				if(!player.isPotionActive(ModPotions.sunscreen)) {
 					player.addPotionEffect(new PotionEffect(ModPotions.sunscreen, ConfigUmbrella.umbrellaProtectionTime * 20, 5, false, false));
 					if(breakable) stack.damageItem(ConfigUmbrella.umbrellaProtectionTime, player);
