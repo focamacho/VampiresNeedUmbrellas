@@ -3,9 +3,12 @@ package com.focamacho.vampiresneedumbrellas.utils;
 import com.focamacho.vampiresneedumbrellas.VampiresNeedUmbrellas;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.Loader;
 
 public class Utils {
 
+	public static final boolean isVampirismLoaded = Loader.isModLoaded("vampirism");
+	
 	public static String getColorNameFromNumber(int number) {
 		switch(number){
 		case 0:

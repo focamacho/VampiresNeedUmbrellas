@@ -10,7 +10,6 @@ import com.focamacho.vampiresneedumbrellas.items.ItemUmbrella;
 import com.focamacho.vampiresneedumbrellas.potions.VampirismPotion;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 
-import de.teamlapen.vampirism.api.VReference;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -32,7 +31,7 @@ public class ModObjects {
 	
 	public static void initPotion(IForgeRegistry<Potion> registry) {
 		sunscreen = new VampirismPotion("sunscreen", false, 0xFFF100);
-		sunscreen.registerPotionAttributeModifier(VReference.sunDamage, "9dc9420c-3e5e-41c7-9ba4-ff70e9dc69fc", -0.5, 2);
+		sunscreen.registerPotionAttributeModifier(VampirismHandler.sunDamage, "9dc9420c-3e5e-41c7-9ba4-ff70e9dc69fc", -0.5, 2);
 		
 		registry.register(sunscreen);
 	}

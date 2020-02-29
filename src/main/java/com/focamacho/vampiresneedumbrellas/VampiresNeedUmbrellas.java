@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = VampiresNeedUmbrellas.MODID, name = VampiresNeedUmbrellas.NAME, version = VampiresNeedUmbrellas.VERSION, dependencies = "required-after:vampirism@[1.5.7,)")
+@Mod(modid = VampiresNeedUmbrellas.MODID, name = VampiresNeedUmbrellas.NAME, version = VampiresNeedUmbrellas.VERSION)
 public class VampiresNeedUmbrellas
 {
     public static final String MODID = "vampiresneedumbrellas";
