@@ -12,6 +12,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @EventBusSubscriber
@@ -22,7 +23,7 @@ public class RegistryHandler {
 		ModObjects.initItems(event.getRegistry());
 	}
 	
-	@SubscribeEvent
+	@SubscribeEvent(priority=EventPriority.LOWEST)
 	public static void onPotionRegister(RegistryEvent.Register<Potion> event) {
 		if(ConfigUmbrella.overrideSunscreen) {
 			ModObjects.initPotion(event.getRegistry());
