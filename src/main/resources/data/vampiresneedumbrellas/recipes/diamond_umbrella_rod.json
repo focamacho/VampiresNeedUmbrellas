@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  I",
+    " I ",
+    "I  "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "vampiresneedumbrellas:diamond_umbrella_rod",
+    "count": 2
+  }
+}
