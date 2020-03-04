@@ -1,0 +1,7 @@
+{
+    "parent": "vampiresneedumbrellas:item/gold_umbrella",
+    "textures": {
+        "1": "minecraft:block/orange_wool",
+        "2": "minecraft:block/gold_block"
+    }
+}
