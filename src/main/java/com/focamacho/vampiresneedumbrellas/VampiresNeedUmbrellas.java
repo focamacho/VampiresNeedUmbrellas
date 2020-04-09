@@ -3,7 +3,6 @@ package com.focamacho.vampiresneedumbrellas;
 import com.focamacho.vampiresneedumbrellas.handlers.ModObjects;
 import com.focamacho.vampiresneedumbrellas.handlers.RegistryHandler;
 import com.focamacho.vampiresneedumbrellas.proxy.CommonProxy;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;

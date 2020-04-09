@@ -1,7 +1,6 @@
 package com.focamacho.vampiresneedumbrellas.proxy;
 
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
-
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;

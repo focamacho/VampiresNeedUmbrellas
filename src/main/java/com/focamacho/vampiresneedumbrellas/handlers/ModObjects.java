@@ -1,8 +1,5 @@
 package com.focamacho.vampiresneedumbrellas.handlers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.focamacho.vampiresneedumbrellas.config.ConfigUmbrella;
 import com.focamacho.vampiresneedumbrellas.items.ItemCreativeUmbrella;
 import com.focamacho.vampiresneedumbrellas.items.ItemRod;
@@ -10,10 +7,12 @@ import com.focamacho.vampiresneedumbrellas.items.ItemUmbrella;
 import com.focamacho.vampiresneedumbrellas.items.ItemUmbrellaBauble;
 import com.focamacho.vampiresneedumbrellas.potions.VampirismPotion;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
-
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.registries.IForgeRegistry;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModObjects {
 

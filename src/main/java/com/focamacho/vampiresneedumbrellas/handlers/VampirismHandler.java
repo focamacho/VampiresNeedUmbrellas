@@ -1,7 +1,6 @@
 package com.focamacho.vampiresneedumbrellas.handlers;
 
 import com.focamacho.vampiresneedumbrellas.config.ConfigUmbrella;
-
 import de.teamlapen.vampirism.api.VReference;
 import de.teamlapen.vampirism.core.ModPotions;
 import net.minecraft.entity.Entity;

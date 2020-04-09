@@ -1,10 +1,7 @@
 package com.focamacho.vampiresneedumbrellas.handlers;
 
-import java.io.File;
-
 import com.focamacho.vampiresneedumbrellas.VampiresNeedUmbrellas;
 import com.focamacho.vampiresneedumbrellas.config.ConfigUmbrella;
-
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -14,6 +11,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import java.io.File;
 
 @EventBusSubscriber
 public class RegistryHandler {

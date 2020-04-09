@@ -1,13 +1,12 @@
 package com.focamacho.vampiresneedumbrellas.items;
 
+import baubles.api.BaubleType;
+import baubles.api.IBauble;
 import com.focamacho.vampiresneedumbrellas.VampiresNeedUmbrellas;
 import com.focamacho.vampiresneedumbrellas.config.ConfigUmbrella;
 import com.focamacho.vampiresneedumbrellas.handlers.ModObjects;
 import com.focamacho.vampiresneedumbrellas.handlers.VampirismHandler;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
-
-import baubles.api.BaubleType;
-import baubles.api.IBauble;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.IItemPropertyGetter;
