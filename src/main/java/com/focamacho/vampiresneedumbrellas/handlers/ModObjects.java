@@ -7,6 +7,7 @@ import com.focamacho.vampiresneedumbrellas.config.ConfigUmbrella;
 import com.focamacho.vampiresneedumbrellas.items.ItemCreativeUmbrella;
 import com.focamacho.vampiresneedumbrellas.items.ItemRod;
 import com.focamacho.vampiresneedumbrellas.items.ItemUmbrella;
+import com.focamacho.vampiresneedumbrellas.items.ItemUmbrellaBauble;
 import com.focamacho.vampiresneedumbrellas.potions.VampirismPotion;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 
@@ -21,6 +22,7 @@ public class ModObjects {
 	public static Item umbrellaIron = null;
 	public static Item umbrellaGold = null;
 	public static Item umbrellaDiamond = null;
+
 	public static Potion sunscreen = null;
 	
 	public static Item umbrellaIronRod = null;
@@ -39,19 +41,34 @@ public class ModObjects {
 	}
 	
 	public static void initItems(IForgeRegistry<Item> registry) {
-		umbrellaIron = new ItemUmbrella("iron_umbrella", ConfigUmbrella.ironUmbrellaDurability, 0);
+		if(Utils.isBaublesLoaded && ConfigUmbrella.umbrellaBauble) {
+			umbrellaIron = new ItemUmbrellaBauble("iron_umbrella", ConfigUmbrella.ironUmbrellaDurability, 0);
+			umbrellaGold = new ItemUmbrellaBauble("gold_umbrella", ConfigUmbrella.goldUmbrellaDurability, 0);
+			umbrellaDiamond = new ItemUmbrellaBauble("diamond_umbrella", ConfigUmbrella.diamondUmbrellaDurability, 0);
+		} else {
+			umbrellaIron = new ItemUmbrella("iron_umbrella", ConfigUmbrella.ironUmbrellaDurability, 0);
+			umbrellaGold = new ItemUmbrella("gold_umbrella", ConfigUmbrella.goldUmbrellaDurability, 0);
+			umbrellaDiamond = new ItemUmbrella("diamond_umbrella", ConfigUmbrella.diamondUmbrellaDurability, 0);
+		}
+		
 		registry.register(umbrellaIron);
-		
-		umbrellaGold = new ItemUmbrella("gold_umbrella", ConfigUmbrella.goldUmbrellaDurability, 0);
 		registry.register(umbrellaGold);
-		
-		umbrellaDiamond = new ItemUmbrella("diamond_umbrella", ConfigUmbrella.diamondUmbrellaDurability, 0);
 		registry.register(umbrellaDiamond);
 		
 		for(int i = 1; i < 16; i++) {
-			Item umbrellaIronCollored = new ItemUmbrella(Utils.getColorNameFromNumber(i) + "_iron_umbrella", ConfigUmbrella.ironUmbrellaDurability, i);
-			Item umbrellaGoldCollored = new ItemUmbrella(Utils.getColorNameFromNumber(i) + "_gold_umbrella", ConfigUmbrella.goldUmbrellaDurability, i);
-			Item umbrellaDiamondCollored = new ItemUmbrella(Utils.getColorNameFromNumber(i) + "_diamond_umbrella", ConfigUmbrella.diamondUmbrellaDurability, i);
+			Item umbrellaIronCollored = null;
+			Item umbrellaGoldCollored = null;
+			Item umbrellaDiamondCollored = null;
+			
+			if(Utils.isBaublesLoaded && ConfigUmbrella.umbrellaBauble) {
+				umbrellaIronCollored = new ItemUmbrellaBauble(Utils.getColorNameFromNumber(i) + "_iron_umbrella", ConfigUmbrella.ironUmbrellaDurability, i);
+				umbrellaGoldCollored = new ItemUmbrellaBauble(Utils.getColorNameFromNumber(i) + "_gold_umbrella", ConfigUmbrella.goldUmbrellaDurability, i);
+				umbrellaDiamondCollored = new ItemUmbrellaBauble(Utils.getColorNameFromNumber(i) + "_diamond_umbrella", ConfigUmbrella.diamondUmbrellaDurability, i);	
+			} else {
+				umbrellaIronCollored = new ItemUmbrella(Utils.getColorNameFromNumber(i) + "_iron_umbrella", ConfigUmbrella.ironUmbrellaDurability, i);
+				umbrellaGoldCollored = new ItemUmbrella(Utils.getColorNameFromNumber(i) + "_gold_umbrella", ConfigUmbrella.goldUmbrellaDurability, i);
+				umbrellaDiamondCollored = new ItemUmbrella(Utils.getColorNameFromNumber(i) + "_diamond_umbrella", ConfigUmbrella.diamondUmbrellaDurability, i);	
+			}
 			
 			registry.register(umbrellaIronCollored);
 			registry.register(umbrellaGoldCollored);

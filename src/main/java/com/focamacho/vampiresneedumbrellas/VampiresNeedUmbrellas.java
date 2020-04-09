@@ -19,7 +19,7 @@ public class VampiresNeedUmbrellas
 {
     public static final String MODID = "vampiresneedumbrellas";
     public static final String NAME = "Vampires Need Umbrellas";
-    public static final String VERSION = "1.3";
+    public static final String VERSION = "1.4";
 
     @SidedProxy(clientSide = "com.focamacho.vampiresneedumbrellas.proxy.ClientProxy", serverSide = "com.focamacho.vampiresneedumbrellas.proxy.CommonProxy")
 	public static CommonProxy proxy;

@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Loader;
 public class Utils {
 
 	public static final boolean isVampirismLoaded = Loader.isModLoaded("vampirism");
+	public static final boolean isBaublesLoaded = Loader.isModLoaded("baubles");
 	
 	public static String getColorNameFromNumber(int number) {
 		switch(number){

@@ -23,6 +23,7 @@ public class ConfigUmbrella {
 	public static boolean umbrellaOffHand;
 	public static int umbrellaProtectionTime;
 	public static boolean umbrellaAnvil;
+	public static boolean umbrellaBauble;
 	
 	public static boolean creativeUmbrella;
 	public static boolean creativeUmbrellaConfigs;
@@ -54,12 +55,13 @@ public class ConfigUmbrella {
 		category = "Umbrellas Mechanics";
 		umbrellaMainHand = config.getBoolean("umbrellaMainHand", category, true, "Set to false if you don't want the umbrella to work in the main-hand");
 		umbrellaOffHand = config.getBoolean("umbrellaOffHand", category, true, "Set to false if you don't want the umbrella to work in the off-hand");
-		umbrellaProtectionTime = config.getInt("umbrellaProtectionTime", category, 10, 1, 10, "The time in seconds of protection that the umbrella gives you.\n"
+		umbrellaProtectionTime = config.getInt("umbrellaProtectionTime", category, 1, 1, 10, "The time in seconds of protection that the umbrella gives you.\n"
 																							+ "Example: If set to 10, you'll receive a \"Sunscreen Effect\" of 10 seconds and consume 10 from the durability of the Umbrella.\n"
 																							+ "It's useful if you want to make things for vampires a bit harder, a example for that is: Set the config \"umbrellaOffHand\" to false and\n"
 																							+ "this Protection Time to 1, so vampires will only be able to use the umbrella in their main hand\n"
 																							+ "and will have less than 1 second of protection if they take it out of their hand, forcing them to always use the umbrella in the sun.");
 		umbrellaAnvil = config.getBoolean("umbrellaAnvil", category, false, "Set to false if you don't want the umbrella to be enchanted using anvils.");
+		umbrellaBauble = config.getBoolean("umbrellaBauble", category, false, "Set to false if you don't want the umbrella to be used in the baubles slots");
 		
 		category = "Others";
 		creativeUmbrella = config.getBoolean("creativeUmbrella", category, true, "Enable/disable the Creative Umbrella.");
