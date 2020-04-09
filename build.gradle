@@ -58,7 +58,7 @@ dependencies {
     //at runtime (in your development environment) use the full Vampirism jar
     provided "de.teamlapen.vampirism:Vampirism:1.12.2-1.6.2"
 
-    deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
+    provided "com.azanor.baubles:Baubles:1.12-1.5.2"
 }
 
 processResources {
