@@ -35,7 +35,6 @@ public class VampirismHandler {
 
 					stack.damageItem(ConfigHolder.umbrellaProtectionTime, player, consumer -> CuriosAPI.onBrokenCurio(id, index, consumer));
 				}
-				return;
 			}
 		}
 	}
@@ -43,11 +42,13 @@ public class VampirismHandler {
 	public static void applyCreativeEffect(ItemStack stack, World worldIn, Entity entityIn) {
 		if (entityIn instanceof PlayerEntity) {
 			PlayerEntity player = (PlayerEntity)entityIn;
-			if ((ConfigHolder.creativeUmbrellaConfigs && ((ConfigHolder.umbrellaMainHand && player.getHeldItemMainhand().equals(stack)) || (ConfigHolder.umbrellaOffHand && player.getHeldItemOffhand().equals(stack)))) || (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble && CuriosHandler.isUmbrellaEquipped(stack, player))) {
+			if ((ConfigHolder.creativeUmbrellaConfigs && ((ConfigHolder.umbrellaMainHand && player.getHeldItemMainhand().equals(stack)) || (ConfigHolder.umbrellaOffHand && player.getHeldItemOffhand().equals(stack))))) {
 				if (!player.isPotionActive(ModEffects.sunscreen))
 					player.addPotionEffect(new EffectInstance(ModEffects.sunscreen, ConfigHolder.umbrellaProtectionTime * 20, 5, false, false));
 			} else if ((player.getHeldItemMainhand().equals(stack) || player.getHeldItemOffhand().equals(stack) || (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble && CuriosHandler.isUmbrellaEquipped(stack, player))) &&
 					!player.isPotionActive(ModEffects.sunscreen)) {
+				player.addPotionEffect(new EffectInstance(ModEffects.sunscreen, ConfigHolder.umbrellaProtectionTime * 20, 5, false, false));
+			} else if(Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble && CuriosHandler.isUmbrellaEquipped(stack, player) && !player.isPotionActive(ModEffects.sunscreen)) {
 				player.addPotionEffect(new EffectInstance(ModEffects.sunscreen, ConfigHolder.umbrellaProtectionTime * 20, 5, false, false));
 			}
 		}
