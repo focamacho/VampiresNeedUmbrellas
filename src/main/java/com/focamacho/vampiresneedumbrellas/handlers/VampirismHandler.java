@@ -5,12 +5,12 @@ import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import de.teamlapen.vampirism.api.VReference;
 import de.teamlapen.vampirism.core.ModEffects;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.world.World;
+import top.theillusivec4.curios.api.CuriosAPI;
 
 public class VampirismHandler {
 
@@ -19,11 +19,23 @@ public class VampirismHandler {
 	public static void applyEffect(ItemStack stack, World worldIn, Entity entityIn, boolean breakable) {
 		if (canApplyEffect(entityIn)) {
 			PlayerEntity player = (PlayerEntity)entityIn;
-			if (((ConfigHolder.umbrellaMainHand && player.getHeldItemMainhand().equals(stack)) || (ConfigHolder.umbrellaOffHand && player.getHeldItemOffhand().equals(stack)) || (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble && CuriosHandler.isUmbrellaEquipped(stack, player))) &&
-					!player.isPotionActive(ModEffects.sunscreen)) {
+			if (((ConfigHolder.umbrellaMainHand && player.getHeldItemMainhand().equals(stack)) || (ConfigHolder.umbrellaOffHand && player.getHeldItemOffhand().equals(stack))) && !player.isPotionActive(ModEffects.sunscreen)) {
 				player.addPotionEffect(new EffectInstance(ModEffects.sunscreen, ConfigHolder.umbrellaProtectionTime * 20, 5, false, false));
-				if (breakable)
-					stack.damageItem(ConfigHolder.umbrellaProtectionTime, (LivingEntity)player, consumer -> consumer.sendBreakAnimation(player.getActiveHand()));
+				if (breakable) {
+					stack.damageItem(ConfigHolder.umbrellaProtectionTime, player, consumer -> consumer.sendBreakAnimation(player.getActiveHand()));
+				}
+				return;
+			}
+
+			if ((Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble && CuriosHandler.isUmbrellaEquipped(stack, player)) && !player.isPotionActive(ModEffects.sunscreen)) {
+				player.addPotionEffect(new EffectInstance(ModEffects.sunscreen, ConfigHolder.umbrellaProtectionTime * 20, 5, false, false));
+				if (breakable) {
+					String id = CuriosHandler.getUmbrellaEquiped(stack, player).getLeft();
+					Integer index = CuriosHandler.getUmbrellaEquiped(stack, player).getMiddle();
+
+					stack.damageItem(ConfigHolder.umbrellaProtectionTime, player, consumer -> CuriosAPI.onBrokenCurio(id, index, consumer));
+				}
+				return;
 			}
 		}
 	}
