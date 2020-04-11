@@ -5,14 +5,17 @@ import com.focamacho.vampiresneedumbrellas.handlers.ModObjects;
 import com.focamacho.vampiresneedumbrellas.handlers.VampirismHandler;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 
+import baubles.api.BaubleType;
+import baubles.api.IBauble;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemCreativeUmbrella extends Item {
+public class ItemCreativeUmbrellaBauble extends Item implements IBauble {
 	
-	public ItemCreativeUmbrella() {
+	public ItemCreativeUmbrellaBauble() {
 		this.setRegistryName("creative_umbrella");
 		this.setUnlocalizedName("creative_umbrella");
 		this.setMaxStackSize(1);
@@ -34,6 +37,16 @@ public class ItemCreativeUmbrella extends Item {
 	@Override
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
 		return false;
+	}
+	
+    @Override
+    public BaubleType getBaubleType(ItemStack itemstack) {
+        return BaubleType.HEAD;
+    }
+	
+	@Override
+	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
+		if(Utils.isVampirismLoaded) VampirismHandler.applyBaubleEffect(itemstack, player.world, player, false);
 	}
 	
 }
