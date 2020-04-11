@@ -1,7 +1,6 @@
 package com.focamacho.vampiresneedumbrellas.config;
 
 import com.focamacho.vampiresneedumbrellas.VampiresNeedUmbrellas;
-
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;

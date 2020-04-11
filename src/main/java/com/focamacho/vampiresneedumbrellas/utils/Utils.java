@@ -1,7 +1,6 @@
 package com.focamacho.vampiresneedumbrellas.utils;
 
 import com.focamacho.vampiresneedumbrellas.VampiresNeedUmbrellas;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModList;
 

@@ -3,7 +3,6 @@ package com.focamacho.vampiresneedumbrellas.handlers;
 import com.focamacho.vampiresneedumbrellas.VampiresNeedUmbrellas;
 import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.config.ConfigUmbrella;
-
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
