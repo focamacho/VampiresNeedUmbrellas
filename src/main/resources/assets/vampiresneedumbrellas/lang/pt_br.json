@@ -56,5 +56,7 @@
 
 	"item.vampiresneedumbrellas.iron_umbrella_rod": "Haste de guarda-chuva de ferro",
 	"item.vampiresneedumbrellas.gold_umbrella_rod": "Haste de guarda-chuva de ouro",
-	"item.vampiresneedumbrellas.diamond_umbrella_rod": "Haste de guarda-chuva de diamante"
+	"item.vampiresneedumbrellas.diamond_umbrella_rod": "Haste de guarda-chuva de diamante",
+
+	"curios.identifier.umbrella": "Guarda-chuva"
 }

@@ -23,6 +23,7 @@ public class ConfigUmbrella {
 	public static BooleanValue configUmbrellaOffHand;
 	public static IntValue configUmbrellaProtectionTime;
 	public static BooleanValue configUmbrellaAnvil;
+	public static BooleanValue configUmbrellaBauble;
 	
 	public static BooleanValue configCreativeUmbrella;
 	public static BooleanValue configCreativeUmbrellaConfigs;
@@ -74,6 +75,10 @@ public class ConfigUmbrella {
 					.comment("Set to false if you don't want the umbrella to be enchanted using anvils.")
 					.translation(VampiresNeedUmbrellas.MODID + ".config.umbrellaAnvil")
 					.define("umbrellaAnvil", false);
+			ConfigUmbrella.configUmbrellaBauble = builder
+					.comment("Set to false if you don't want the umbrella to be used in the curios slot")
+					.translation("vampiresneedumbrellas.config.umbrellaBauble")
+					.define("umbrellaBauble", false);
 			builder.pop();
 			
 			builder.push("Others");
