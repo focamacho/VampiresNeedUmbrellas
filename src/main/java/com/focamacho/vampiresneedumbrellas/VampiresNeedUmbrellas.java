@@ -4,6 +4,7 @@ import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.config.ConfigUmbrella;
 import com.focamacho.vampiresneedumbrellas.handlers.CuriosHandler;
 import com.focamacho.vampiresneedumbrellas.handlers.ModObjects;
+import com.focamacho.vampiresneedumbrellas.handlers.TooltipHandler;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -39,7 +40,7 @@ public class VampiresNeedUmbrellas
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        
+        MinecraftForge.EVENT_BUS.register(new TooltipHandler());
     }
 
     private void enqueue(InterModEnqueueEvent event) {
