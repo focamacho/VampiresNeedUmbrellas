@@ -44,7 +44,7 @@ public class VampiresNeedUmbrellas
     }
 
     private void enqueue(InterModEnqueueEvent event) {
-        if(Utils.isCuriosLoaded) CuriosHandler.registerUmbrellaCurios();
+        if(Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble) CuriosHandler.registerUmbrellaCurios();
     }
 
     public static final ItemGroup CREATIVETAB = new ItemGroup(VampiresNeedUmbrellas.MODID) {
