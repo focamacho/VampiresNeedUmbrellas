@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+issueTrackerURL="https://github.com/Focamacho/VampiresNeedUmbrellas/issues"
+[[mods]]
+modId="vampiresneedumbrellas"
+version="${file.jarVersion}"
+displayName="Vampires Need Umbrellas"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/vampires-need-umbrellas"
+credits="Thanks for maxanier and Cheaterpaul, for making Vampirism"
+authors="Focamacho"
+description='''
+Now vampires no longer need to fear the sun! This mod adds umbrellas that protect vampires from the sun.
+
+There are 3 types of umbrellas: Iron, Gold and Diamond. Each of them has a different durability that can be changed in the configuration file.
+
+And each type of umbrella is available in 16 different colors.
+'''
+[[dependencies.vampirism]]
+    modId="vampirism"
+    mandatory=false
+    versionRange="[,]"
+    ordering="BEFORE"
+    side="BOTH"

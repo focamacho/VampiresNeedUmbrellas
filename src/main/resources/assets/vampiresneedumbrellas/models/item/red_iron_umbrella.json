@@ -1,0 +1,7 @@
+{
+    "parent": "vampiresneedumbrellas:item/iron_umbrella",
+    "textures": {
+        "1": "minecraft:block/red_wool",
+        "2": "minecraft:block/iron_block"
+    }
+}
