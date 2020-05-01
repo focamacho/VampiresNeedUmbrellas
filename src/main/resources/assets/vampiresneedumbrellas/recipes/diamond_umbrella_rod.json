@@ -1,0 +1,18 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "  I",
+    " I ",
+    "I  "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:diamond",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "vampiresneedumbrellas:diamond_umbrella_rod",
+    "count": 2
+  }
+}
