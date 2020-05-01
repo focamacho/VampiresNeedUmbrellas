@@ -50,7 +50,7 @@ public class VampirismHandler {
 			}
 		}
 	}
-	
+
 	private static boolean canApplyEffect(Entity entity) {
 		return (!entity.world.isRemote && entity instanceof EntityPlayer && entity.world.isDaytime() && entity.world.canSeeSky(entity.getPosition())) ? true : false;
 	}

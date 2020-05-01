@@ -60,5 +60,10 @@ public class ItemUmbrellaBauble extends Item implements IBauble {
     public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
         if(Utils.isVampirismLoaded) VampirismHandler.applyBaubleEffect(itemstack, player.world, player, breakable);
     }
+    
+	@Override
+	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+		return false;
+	}
 
 }

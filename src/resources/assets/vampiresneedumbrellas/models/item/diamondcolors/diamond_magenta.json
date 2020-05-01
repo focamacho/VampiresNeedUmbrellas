@@ -1,7 +1,0 @@
-{
-    "parent": "vampiresneedumbrellas:item/diamond_umbrella",
-    "textures": {
-        "1": "minecraft:blocks/wool_colored_magenta",
-        "2": "minecraft:blocks/diamond_block"
-    }
-}
