@@ -27,7 +27,7 @@ public class VampiresNeedUmbrellas
 {
     public static final String MODID = "vampiresneedumbrellas";
     public static final String NAME = "Vampires Need Umbrellas";
-    public static final String VERSION = "1.1";
+    public static final String VERSION = "1.2";
 
     public VampiresNeedUmbrellas() {
     	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigUmbrella.spec);
