@@ -3,6 +3,7 @@ package com.focamacho.vampiresneedumbrellas.handlers;
 import com.focamacho.vampiresneedumbrellas.config.ConfigUmbrella;
 import de.teamlapen.vampirism.api.VReference;
 import de.teamlapen.vampirism.core.ModPotions;
+import de.teamlapen.vampirism.player.vampire.VampirePlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
@@ -52,6 +53,9 @@ public class VampirismHandler {
 	}
 
 	private static boolean canApplyEffect(Entity entity) {
-		return (!entity.world.isRemote && entity instanceof EntityPlayer && entity.world.isDaytime() && entity.world.canSeeSky(entity.getPosition())) ? true : false;
+		if(entity.world.isRemote || !(entity instanceof EntityPlayer)) return false;
+		VampirePlayer vampire = VampirePlayer.get((EntityPlayer) entity);
+		return (vampire.isGettingSundamage());
 	}
+
 }
