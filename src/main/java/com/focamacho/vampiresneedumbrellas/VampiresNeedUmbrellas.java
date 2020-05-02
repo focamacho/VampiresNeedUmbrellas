@@ -22,7 +22,7 @@ public class VampiresNeedUmbrellas
 {
     public static final String MODID = "vampiresneedumbrellas";
     public static final String NAME = "Vampires Need Umbrellas";
-    public static final String VERSION = "1.1";
+    public static final String VERSION = "1.2";
 
     public VampiresNeedUmbrellas() {
     	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigUmbrella.spec);
@@ -44,7 +44,7 @@ public class VampiresNeedUmbrellas
     }
 
     private void enqueue(InterModEnqueueEvent event) {
-        if(Utils.isCuriosLoaded) CuriosHandler.registerUmbrellaCurios();
+        if(Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble) CuriosHandler.registerUmbrellaCurios();
     }
 
     public static final ItemGroup CREATIVETAB = new ItemGroup(VampiresNeedUmbrellas.MODID) {

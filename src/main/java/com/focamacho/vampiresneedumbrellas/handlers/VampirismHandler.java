@@ -4,6 +4,7 @@ import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import de.teamlapen.vampirism.api.VReference;
 import de.teamlapen.vampirism.core.ModEffects;
+import de.teamlapen.vampirism.player.vampire.VampirePlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.PlayerEntity;
@@ -55,6 +56,9 @@ public class VampirismHandler {
 	}
 
 	private static boolean canApplyEffect(Entity entity) {
-		return (!entity.world.isRemote && entity instanceof PlayerEntity && entity.world.isDaytime() && entity.world.canBlockSeeSky(entity.getPosition()));
+		if(entity.world.isRemote || !(entity instanceof PlayerEntity)) return false;
+		VampirePlayer vampire = VampirePlayer.get((PlayerEntity)entity);
+		return vampire.isGettingSundamage(entity.world);
 	}
+
 }
