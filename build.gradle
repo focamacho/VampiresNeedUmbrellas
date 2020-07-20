@@ -14,7 +14,7 @@ apply plugin: 'maven-publish'
 
 version = '1.2.1'
 group = 'com.focamacho.vampiresneedumbrellas'
-archivesBaseName = 'vampiresneedumbrellas'
+archivesBaseName = 'VampiresNeedUmbrellas-1.14.4'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
@@ -82,8 +82,8 @@ repositories {
 dependencies {
 	minecraft 'net.minecraftforge:forge:1.14.4-28.2.0'
     compile fg.deobf("de.teamlapen.vampirism:Vampirism:1.14.4-1.6.4")
-	runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.6.1")
-	compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.6.1:api")
+	runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.15.2-2.0.2.4")
+	compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.15.2-2.0.2.4:api")
 }
 
 jar {
