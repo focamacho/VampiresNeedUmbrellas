@@ -22,8 +22,6 @@ public class ModObjects {
 
 	public static Item creativeUmbrella = null;
 
-	public static void initPotion() {}
-
 	public static void initItems(IForgeRegistry<Item> registry) {
 
 		umbrellaIron = new ItemIronUmbrella((new Item.Properties()).group(VampiresNeedUmbrellas.CREATIVETAB), "iron_umbrella");

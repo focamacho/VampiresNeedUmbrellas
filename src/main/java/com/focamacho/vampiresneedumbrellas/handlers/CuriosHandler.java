@@ -19,6 +19,10 @@ public class CuriosHandler {
         return CuriosAPI.getCurioEquipped(umbrella.getItem(), player).isPresent();
     }
 
+    public static void onBrokenCurio(String id, int index, PlayerEntity consumer) {
+        CuriosAPI.onBrokenCurio(id, index, consumer);
+    }
+
     public static ImmutableTriple<String, Integer, ItemStack> getUmbrellaEquiped(ItemStack umbrella, PlayerEntity player) {
         return CuriosAPI.getCurioEquipped(umbrella.getItem(), player).get();
     }

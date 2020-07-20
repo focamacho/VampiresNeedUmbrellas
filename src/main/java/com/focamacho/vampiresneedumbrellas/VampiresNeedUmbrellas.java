@@ -27,7 +27,7 @@ public class VampiresNeedUmbrellas
 {
     public static final String MODID = "vampiresneedumbrellas";
     public static final String NAME = "Vampires Need Umbrellas";
-    public static final String VERSION = "1.2";
+    public static final String VERSION = "1.2.1";
 
     public VampiresNeedUmbrellas() {
     	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigUmbrella.spec);
@@ -65,7 +65,7 @@ public class VampiresNeedUmbrellas
         @SubscribeEvent
         public static void stitchTextures(TextureStitchEvent.Pre evt) {
             if (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble) {
-                if (evt.getMap().func_229223_g_() == PlayerContainer.field_226615_c_) {
+                if (evt.getMap().getTextureLocation() == PlayerContainer.LOCATION_BLOCKS_TEXTURE) {
                     evt.addSprite(new ResourceLocation(MODID, "curios"));
                 }
             }
