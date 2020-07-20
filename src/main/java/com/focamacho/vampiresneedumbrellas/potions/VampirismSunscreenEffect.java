@@ -4,8 +4,6 @@ import de.teamlapen.vampirism.core.ModEffects;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-
 public class VampirismSunscreenEffect extends EffectInstance {
 
     public VampirismSunscreenEffect(World world) {
