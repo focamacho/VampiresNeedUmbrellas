@@ -73,12 +73,15 @@ repositories {
     }
 	maven {
 		url = "https://maven.theillusivec4.top/"
-	} 
+	}
+    maven {
+        url = "https://maxanier.de/maven2"
+    }
 }
 
 dependencies {
 	minecraft 'net.minecraftforge:forge:1.14.4-28.2.0'
-	compile (name:'Vampirism-1.14.4-1.6.0-beta.1', ext:'jar')
+    compile fg.deobf("de.teamlapen.vampirism:Vampirism:1.14.4-1.6.4")
 	runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.6.1")
 	compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.14.4-1.0.6.1:api")
 }
