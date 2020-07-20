@@ -7,7 +7,6 @@ import com.focamacho.vampiresneedumbrellas.items.ItemGoldUmbrella;
 import com.focamacho.vampiresneedumbrellas.items.ItemIronUmbrella;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
