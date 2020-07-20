@@ -11,7 +11,7 @@ import net.minecraftforge.fml.config.ModConfig;
 
 @EventBusSubscriber(modid = VampiresNeedUmbrellas.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class RegistryHandler {
-	
+
 	@SubscribeEvent
 	public static void onItemRegister(final RegistryEvent.Register<Item> event) {
 		ModObjects.initItems(event.getRegistry());
