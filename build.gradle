@@ -15,7 +15,7 @@ apply plugin: 'maven-publish'
 
 version = '1.0'
 group = 'com.focamacho.vampiresneedumbrellas' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'VampiresNeedUmbrellas-1.16.1'
+archivesBaseName = 'VampiresNeedUmbrellas-1.16.3'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -83,10 +83,10 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.1-32.0.70'
-    compile fg.deobf("de.teamlapen.vampirism:Vampirism:1.16.1-1.6.0-alpha+20200719-2200")
-	runtimeOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.16.1-3.0-beta4")
-	compileOnly fg.deobf("top.theillusivec4.curios:curios:FORGE-1.16.1-3.0-beta4:api")
+    minecraft 'net.minecraftforge:forge:1.16.3-34.1.10'
+    compile fg.deobf("de.teamlapen.vampirism:Vampirism:1.16.3-1.6.0-alpha+20201004-1704")
+	runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.3-4.0.2.0")
+	compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.3-4.0.2.0:api")
 }
 
 jar {

@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class ItemDiamondUmbrella extends Item {
 	
-	private boolean breakable = this.isBreakable();
+	private boolean breakable = this.isDamageable();
 	
 	public ItemDiamondUmbrella(Item.Properties builder, String name) {
 		super(builder);
@@ -44,8 +44,9 @@ public class ItemDiamondUmbrella extends Item {
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
 		return false;
 	}
-	
-	private boolean isBreakable() {
-		return ConfigHolder.diamondUmbrellaDurability == -1 ? false : true;
+
+	@Override
+	public boolean isDamageable() {
+		return ConfigHolder.diamondUmbrellaDurability != -1;
 	}
 }

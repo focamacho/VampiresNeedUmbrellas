@@ -1,6 +1,7 @@
 modLoader="javafml"
 loaderVersion="[32,)"
 issueTrackerURL="https://github.com/Focamacho/VampiresNeedUmbrellas/issues"
+license = "MIT-1.0"
 [[mods]]
 modId="vampiresneedumbrellas"
 version="${file.jarVersion}"
