@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "vampiresneedumbrellas:red_diamond_umbrella"
+  },
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "result": {
+    "item": "vampiresneedumbrellas:red_netherite_umbrella"
+  }
+}

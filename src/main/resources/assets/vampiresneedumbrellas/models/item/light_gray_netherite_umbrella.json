@@ -1,0 +1,7 @@
+{
+    "parent": "vampiresneedumbrellas:item/netherite_umbrella",
+    "textures": {
+        "1": "minecraft:block/light_gray_wool",
+        "2": "minecraft:block/netherite_block"
+    }
+}

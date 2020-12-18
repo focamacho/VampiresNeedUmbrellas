@@ -15,6 +15,7 @@ public class ConfigUmbrella {
 	public static IntValue configIronUmbrellaDurability;
 	public static IntValue configGoldUmbrellaDurability;
 	public static IntValue configDiamondUmbrellaDurability;
+	public static IntValue configNetheriteUmbrellaDurability;
 	
 	public static BooleanValue configUmbrellaMainHand;
 	public static BooleanValue configUmbrellaOffHand;
@@ -38,6 +39,10 @@ public class ConfigUmbrella {
 					.comment("The durability in seconds of the Diamond Umbrella when in the sun. Set to -1 if you want it to be unbreakable")
 					.translation(VampiresNeedUmbrellas.MODID + ".config.diamondUmbrellaDurability")
 					.defineInRange("diamondUmbrellaDurability", 9600, -1, 432000);
+			configNetheriteUmbrellaDurability = builder
+					.comment("The durability in seconds of the Netherite Umbrella when in the sun. Set to -1 if you want it to be unbreakable")
+					.translation(VampiresNeedUmbrellas.MODID + ".config.netheriteUmbrellaDurability")
+					.defineInRange("netheriteUmbrellaDurability", 14400, -1, 432000);
 			builder.pop();
 			
 			builder.push("Umbrellas Mechanics");

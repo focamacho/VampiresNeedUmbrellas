@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0'
+version = '1.1'
 group = 'com.focamacho.vampiresneedumbrellas' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'VampiresNeedUmbrellas-1.16.4'
 
@@ -80,6 +80,14 @@ repositories {
     maven {
         url = "https://maxanier.de/maven2"
     }
+    maven {
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        name = "ModMaven"
+        url = "https://modmaven.k-4u.nl"
+    }
 }
 
 dependencies {
@@ -87,6 +95,7 @@ dependencies {
     compile fg.deobf("de.teamlapen.vampirism:Vampirism:1.16.4-1.6.2")
 	runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.2.1")
 	compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.2.1:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:7.6.0.62")
 }
 
 jar {

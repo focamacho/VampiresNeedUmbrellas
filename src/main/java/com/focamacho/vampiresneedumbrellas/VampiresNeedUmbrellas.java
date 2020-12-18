@@ -26,8 +26,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class VampiresNeedUmbrellas
 {
     public static final String MODID = "vampiresneedumbrellas";
-    public static final String NAME = "Vampires Need Umbrellas";
-    public static final String VERSION = "1.0";
 
     public VampiresNeedUmbrellas() {
     	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigUmbrella.spec);
