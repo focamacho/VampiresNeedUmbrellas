@@ -12,12 +12,19 @@ authors="Focamacho"
 description='''
 Now vampires no longer need to fear the sun! This mod adds umbrellas that protect vampires from the sun.
 
-There are 3 types of umbrellas: Iron, Gold and Diamond. Each of them has a different durability that can be changed in the configuration file.
+There are 4 types of umbrellas: Iron, Gold, Diamond and Netherite. Each of them has a different durability that can be changed in the configuration file.
 
 And each type of umbrella is available in 16 different colors.
 '''
-[[dependencies.vampirism]]
+[[dependencies.vampiresneedumbrellas]]
     modId="vampirism"
+    mandatory=false
+    versionRange="[,]"
+    ordering="BEFORE"
+    side="BOTH"
+
+[[dependencies.vampiresneedumbrellas]]
+    modId="curios"
     mandatory=false
     versionRange="[,]"
     ordering="BEFORE"
