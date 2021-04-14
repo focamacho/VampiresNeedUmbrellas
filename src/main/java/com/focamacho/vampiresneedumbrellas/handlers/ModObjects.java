@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModObjects {
+
 	public static List<Item> itemsList = new ArrayList<>();
 
 	public static Item umbrellaIron = null;
