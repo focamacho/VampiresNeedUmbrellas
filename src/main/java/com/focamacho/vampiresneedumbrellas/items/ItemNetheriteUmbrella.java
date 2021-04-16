@@ -7,11 +7,12 @@ import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.world.World;
 
-public class ItemNetheriteUmbrella extends Item {
+import javax.annotation.ParametersAreNonnullByDefault;
 
-	private boolean breakable = this.isDamageable();
+public class ItemNetheriteUmbrella extends Item {
 
 	public ItemNetheriteUmbrella(Properties builder, String name) {
 		super(builder);
@@ -19,10 +20,11 @@ public class ItemNetheriteUmbrella extends Item {
 		
 		ModObjects.itemsList.add(this);
 	}
-	
+
+	@ParametersAreNonnullByDefault
 	@Override
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if(Utils.isVampirismLoaded) VampirismHandler.applyEffect(stack, worldIn, entityIn, breakable);
+		if(Utils.isVampirismLoaded) VampirismHandler.applyEffect(stack, worldIn, entityIn, isDamageable());
 	}
 	
 	@Override
@@ -37,7 +39,7 @@ public class ItemNetheriteUmbrella extends Item {
 	
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-		return true;
+		return ConfigHolder.umbrellaAnvil;
 	}
 	
 	@Override
@@ -49,4 +51,11 @@ public class ItemNetheriteUmbrella extends Item {
 	public boolean isDamageable() {
 		return ConfigHolder.netheriteUmbrellaDurability != -1;
 	}
+
+	@ParametersAreNonnullByDefault
+	@Override
+	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+		return ConfigHolder.umbrellaRepair && repair.getItem().equals(Items.NETHERITE_INGOT);
+	}
+
 }

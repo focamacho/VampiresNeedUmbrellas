@@ -19,13 +19,13 @@ And each type of umbrella is available in 16 different colors.
 [[dependencies.vampiresneedumbrellas]]
     modId="vampirism"
     mandatory=false
-    versionRange="[,]"
+    versionRange="[1+]"
     ordering="BEFORE"
     side="BOTH"
 
 [[dependencies.vampiresneedumbrellas]]
     modId="curios"
     mandatory=false
-    versionRange="[,]"
+    versionRange="[1+]"
     ordering="BEFORE"
     side="BOTH"

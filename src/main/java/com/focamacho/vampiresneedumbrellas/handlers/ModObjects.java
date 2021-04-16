@@ -36,10 +36,10 @@ public class ModObjects {
 		registry.register(umbrellaNetherite);
 
 		for (int i = 1; i < 16; i++) {
-			ItemIronUmbrella itemIronUmbrella = new ItemIronUmbrella((new Item.Properties()).group(VampiresNeedUmbrellas.CREATIVETAB), Utils.getColorNameFromNumber(i) + "_iron_umbrella");
-			ItemGoldUmbrella itemGoldUmbrella = new ItemGoldUmbrella((new Item.Properties()).group(VampiresNeedUmbrellas.CREATIVETAB), Utils.getColorNameFromNumber(i) + "_gold_umbrella");
-			ItemDiamondUmbrella itemDiamondUmbrella = new ItemDiamondUmbrella((new Item.Properties()).group(VampiresNeedUmbrellas.CREATIVETAB), Utils.getColorNameFromNumber(i) + "_diamond_umbrella");
-			ItemNetheriteUmbrella itemNetheriteUmbrella = new ItemNetheriteUmbrella((new Item.Properties()).group(VampiresNeedUmbrellas.CREATIVETAB), Utils.getColorNameFromNumber(i) + "_netherite_umbrella");
+			ItemIronUmbrella itemIronUmbrella = new ItemIronUmbrella(new Item.Properties().group(VampiresNeedUmbrellas.CREATIVETAB), Utils.getColorNameFromNumber(i) + "_iron_umbrella");
+			ItemGoldUmbrella itemGoldUmbrella = new ItemGoldUmbrella(new Item.Properties().group(VampiresNeedUmbrellas.CREATIVETAB), Utils.getColorNameFromNumber(i) + "_gold_umbrella");
+			ItemDiamondUmbrella itemDiamondUmbrella = new ItemDiamondUmbrella(new Item.Properties().group(VampiresNeedUmbrellas.CREATIVETAB), Utils.getColorNameFromNumber(i) + "_diamond_umbrella");
+			ItemNetheriteUmbrella itemNetheriteUmbrella = new ItemNetheriteUmbrella(new Item.Properties().group(VampiresNeedUmbrellas.CREATIVETAB), Utils.getColorNameFromNumber(i) + "_netherite_umbrella");
 
 			registry.register(itemIronUmbrella);
 			registry.register(itemGoldUmbrella);
@@ -47,14 +47,14 @@ public class ModObjects {
 			registry.register(itemNetheriteUmbrella);
 		}
 
-		creativeUmbrella = new ItemCreativeUmbrella((new Item.Properties()).group(VampiresNeedUmbrellas.CREATIVETAB));
+		creativeUmbrella = new ItemCreativeUmbrella(new Item.Properties().group(VampiresNeedUmbrellas.CREATIVETAB));
 		registry.register(creativeUmbrella);
 
-		umbrellaIronRod = new ItemRod((new Item.Properties()).group(VampiresNeedUmbrellas.CREATIVETAB), "iron_umbrella_rod");
+		umbrellaIronRod = new ItemRod(new Item.Properties().group(VampiresNeedUmbrellas.CREATIVETAB), "iron_umbrella_rod");
 		registry.register(umbrellaIronRod);
-		umbrellaGoldRod = new ItemRod((new Item.Properties()).group(VampiresNeedUmbrellas.CREATIVETAB), "gold_umbrella_rod");
+		umbrellaGoldRod = new ItemRod(new Item.Properties().group(VampiresNeedUmbrellas.CREATIVETAB), "gold_umbrella_rod");
 		registry.register(umbrellaGoldRod);
-		umbrellaDiamondRod = new ItemRod((new Item.Properties()).group(VampiresNeedUmbrellas.CREATIVETAB), "diamond_umbrella_rod");
+		umbrellaDiamondRod = new ItemRod(new Item.Properties().group(VampiresNeedUmbrellas.CREATIVETAB), "diamond_umbrella_rod");
 		registry.register(umbrellaDiamondRod);
 	}
 }

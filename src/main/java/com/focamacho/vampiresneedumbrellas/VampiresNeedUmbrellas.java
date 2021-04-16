@@ -18,28 +18,22 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(VampiresNeedUmbrellas.MODID)
-public class VampiresNeedUmbrellas
-{
+public class VampiresNeedUmbrellas {
+
     public static final String MODID = "vampiresneedumbrellas";
 
     public VampiresNeedUmbrellas() {
-    	ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigUmbrella.spec);
-    	ConfigHolder.updateConfigs();
-    	
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigUmbrella.spec);
+        ConfigHolder.updateConfigs();
+        
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueue);
 
         MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    private void setup(final FMLCommonSetupEvent event) {
-
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -52,10 +46,10 @@ public class VampiresNeedUmbrellas
 
     public static final ItemGroup CREATIVETAB = new ItemGroup(VampiresNeedUmbrellas.MODID) {
 
-		@Override
-		public ItemStack createIcon() {
-			return new ItemStack(ModObjects.umbrellaIron);
-		}};
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ModObjects.umbrellaIron);
+        }};
 
     @Mod.EventBusSubscriber(modid = MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientProxy {

@@ -1,7 +1,5 @@
 package com.focamacho.vampiresneedumbrellas.utils;
 
-import com.focamacho.vampiresneedumbrellas.VampiresNeedUmbrellas;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.ModList;
 
 public class Utils {
@@ -46,17 +44,5 @@ public class Utils {
 		}
 		return "";
 	}
-	
-	public static ResourceLocation getResourceLocationFromRegistry(ResourceLocation registry) {
-		if(registry.toString().contains("rod") || registry.toString().contains("creative")) {
-			return registry;
-		} else if(registry.toString().contains("iron_umbrella")) {
-			return new ResourceLocation(VampiresNeedUmbrellas.MODID, "iron_umbrella");
-		} else if(registry.toString().contains("gold_umbrella")) {
-			return new ResourceLocation(VampiresNeedUmbrellas.MODID, "gold_umbrella");
-		} else if(registry.toString().contains("diamond_umbrella")) {
-			return new ResourceLocation(VampiresNeedUmbrellas.MODID, "diamond_umbrella");
-		}
-		return null;
-	}
+
 }
