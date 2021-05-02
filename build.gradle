@@ -46,7 +46,7 @@ repositories {
     }
 }
 dependencies {
-    deobfCompile "de.teamlapen.vampirism:Vampirism:1.12.2-1.6.2:api"
+    deobfCompile "de.teamlapen.vampirism:Vampirism:1.16.4-1.7.8:api"
     provided "de.teamlapen.vampirism:Vampirism:1.12.2-1.6.2"
 
     provided "com.azanor.baubles:Baubles:1.12-1.5.2"
