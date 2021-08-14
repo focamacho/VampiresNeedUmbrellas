@@ -24,7 +24,7 @@ public class ItemDiamondUmbrella extends Item {
 	@ParametersAreNonnullByDefault
 	@Override
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if(Utils.isVampirismLoaded) VampirismHandler.applyEffect(stack, worldIn, entityIn, isDamageable());
+		if(Utils.isVampirismLoaded) VampirismHandler.applyEffect(stack, worldIn, entityIn, isDamageable(stack));
 	}
 
 	@Override
@@ -48,13 +48,13 @@ public class ItemDiamondUmbrella extends Item {
 	}
 
 	@Override
-	public boolean isDamageable() {
+	public boolean isDamageable(ItemStack stack) {
 		return ConfigHolder.diamondUmbrellaDurability != -1;
 	}
 
 	@ParametersAreNonnullByDefault
 	@Override
-	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+	public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
 		return ConfigHolder.umbrellaRepair && repair.getItem().equals(Items.DIAMOND);
 	}
 

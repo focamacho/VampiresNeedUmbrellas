@@ -1,5 +1,6 @@
 package com.focamacho.vampiresneedumbrellas.potions;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraftforge.api.distmarker.Dist;
@@ -13,12 +14,17 @@ public class SunscreenEffectInstance extends EffectInstance {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public boolean getIsPotionDurationMax() {
+    public boolean isNoCounter() {
         return true;
     }
 
     @Override
-    public boolean isShowIcon() {
+    public boolean showIcon() {
+        return false;
+    }
+
+    @Override
+    public boolean isVisible() {
         return false;
     }
 }

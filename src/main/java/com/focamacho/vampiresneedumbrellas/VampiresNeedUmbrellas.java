@@ -29,7 +29,7 @@ public class VampiresNeedUmbrellas {
     public VampiresNeedUmbrellas() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigUmbrella.spec);
         ConfigHolder.updateConfigs();
-        
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueue);
 
@@ -47,9 +47,11 @@ public class VampiresNeedUmbrellas {
     public static final ItemGroup CREATIVETAB = new ItemGroup(VampiresNeedUmbrellas.MODID) {
 
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(ModObjects.umbrellaIron);
-        }};
+        }
+
+    };
 
     @Mod.EventBusSubscriber(modid = MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientProxy {
@@ -57,10 +59,11 @@ public class VampiresNeedUmbrellas {
         @SubscribeEvent
         public static void stitchTextures(TextureStitchEvent.Pre evt) {
             if (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble) {
-                if (evt.getMap().getTextureLocation() == PlayerContainer.LOCATION_BLOCKS_TEXTURE) {
+                if (evt.getMap().location() == PlayerContainer.BLOCK_ATLAS) {
                     evt.addSprite(new ResourceLocation(MODID, "curios"));
                 }
             }
         }
     }
+
 }

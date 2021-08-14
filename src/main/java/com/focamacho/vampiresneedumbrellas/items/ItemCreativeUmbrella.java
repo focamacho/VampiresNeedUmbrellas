@@ -25,12 +25,13 @@ public class ItemCreativeUmbrella extends Item {
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if(Utils.isVampirismLoaded) VampirismHandler.applyCreativeEffect(stack, entityIn);
 	}
-	
+
+	@ParametersAreNonnullByDefault
 	@Override
-	public boolean hasEffect(ItemStack stack) {
+	public boolean isFoil(ItemStack stack) {
 		return true;
 	}
-	
+
 	@Override
 	public int getItemStackLimit(ItemStack stack) {
 		return 1;

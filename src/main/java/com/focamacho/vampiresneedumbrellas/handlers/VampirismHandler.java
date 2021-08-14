@@ -4,7 +4,6 @@ import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.potions.SunscreenEffectInstance;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import de.teamlapen.vampirism.api.VReference;
-import de.teamlapen.vampirism.api.VampirismAPI;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -24,10 +23,10 @@ public class VampirismHandler {
 	public static void applyEffect(ItemStack stack, World world, Entity entityIn, boolean breakable) {
 		if (canApplyEffect(entityIn)) {
 			PlayerEntity player = (PlayerEntity) entityIn;
-			if ((ConfigHolder.umbrellaMainHand && player.getHeldItemMainhand().equals(stack)) || (ConfigHolder.umbrellaOffHand && player.getHeldItemOffhand().equals(stack))) {
-				player.addPotionEffect(new SunscreenEffectInstance(vampirism_sunscreen));
+			if ((ConfigHolder.umbrellaMainHand && player.getMainHandItem().equals(stack)) || (ConfigHolder.umbrellaOffHand && player.getOffhandItem().equals(stack))) {
+				player.addEffect(new SunscreenEffectInstance(vampirism_sunscreen));
 				if (breakable && VReference.VAMPIRE_FACTION.getPlayerCapability(player).map(v->v.isGettingSundamage(world)).orElse(false)) {
-					stack.damageItem(1, player, consumer -> consumer.sendBreakAnimation(player.getActiveHand()));
+					stack.hurtAndBreak(1, player, consumer -> consumer.broadcastBreakEvent(player.getUsedItemHand()));
 				}
 				return;
 			}
@@ -36,13 +35,13 @@ public class VampirismHandler {
 				Optional<ImmutableTriple<String, Integer, ItemStack>> opt = CuriosHandler.getUmbrellaEquiped(stack, player);
 				if(opt.isPresent()) {
 					ImmutableTriple<String, Integer, ItemStack> umbrella = opt.get();
-					player.addPotionEffect(new SunscreenEffectInstance(vampirism_sunscreen));
+					player.addEffect(new SunscreenEffectInstance(vampirism_sunscreen));
 
 					if (breakable && VReference.VAMPIRE_FACTION.getPlayerCapability(player).map(v->v.isGettingSundamage(world)).orElse(false)) {
 						String id = umbrella.getLeft();
 						Integer index = umbrella.getMiddle();
 
-						stack.damageItem(1, player, consumer -> CuriosHandler.onBrokenCurio(id, index, consumer));
+						stack.hurtAndBreak(1, player, consumer -> CuriosHandler.onBrokenCurio(id, index, consumer));
 					}
 				}
 			}
@@ -52,12 +51,12 @@ public class VampirismHandler {
 	public static void applyCreativeEffect(ItemStack stack, Entity entityIn) {
 		if (canApplyEffect(entityIn)) {
 			PlayerEntity player = (PlayerEntity)entityIn;
-			if ((ConfigHolder.creativeUmbrellaConfigs && ((ConfigHolder.umbrellaMainHand && player.getHeldItemMainhand().equals(stack)) || (ConfigHolder.umbrellaOffHand && player.getHeldItemOffhand().equals(stack))))) {
-				player.addPotionEffect(new SunscreenEffectInstance(vampirism_sunscreen));
-			} else if ((player.getHeldItemMainhand().equals(stack) || player.getHeldItemOffhand().equals(stack) || (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble && CuriosHandler.getUmbrellaEquiped(stack, player).isPresent()))) {
-				player.addPotionEffect(new SunscreenEffectInstance(vampirism_sunscreen));
+			if ((ConfigHolder.creativeUmbrellaConfigs && ((ConfigHolder.umbrellaMainHand && player.getMainHandItem().equals(stack)) || (ConfigHolder.umbrellaOffHand && player.getOffhandItem().equals(stack))))) {
+				player.addEffect(new SunscreenEffectInstance(vampirism_sunscreen));
+			} else if ((player.getMainHandItem().equals(stack) || player.getOffhandItem().equals(stack) || (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble && CuriosHandler.getUmbrellaEquiped(stack, player).isPresent()))) {
+				player.addEffect(new SunscreenEffectInstance(vampirism_sunscreen));
 			} else if(Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble && CuriosHandler.getUmbrellaEquiped(stack, player).isPresent()) {
-				player.addPotionEffect(new SunscreenEffectInstance(vampirism_sunscreen));
+				player.addEffect(new SunscreenEffectInstance(vampirism_sunscreen));
 			}
 		}
 	}
@@ -65,7 +64,7 @@ public class VampirismHandler {
 	private static boolean canApplyEffect(Entity entity) {
 		if(!(entity instanceof PlayerEntity)) return false;
 		PlayerEntity player = (PlayerEntity) entity;
-		EffectInstance effectInstance = player.getActivePotionEffect(vampirism_sunscreen);
+		EffectInstance effectInstance = player.getEffect(vampirism_sunscreen);
 		return effectInstance == null || effectInstance.getDuration() <= 1;
 	}
 
