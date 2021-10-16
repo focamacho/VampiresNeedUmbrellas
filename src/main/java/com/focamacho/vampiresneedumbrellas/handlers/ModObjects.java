@@ -3,7 +3,7 @@ package com.focamacho.vampiresneedumbrellas.handlers;
 import com.focamacho.vampiresneedumbrellas.VampiresNeedUmbrellas;
 import com.focamacho.vampiresneedumbrellas.items.*;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;

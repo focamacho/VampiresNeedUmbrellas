@@ -587,6 +587,12 @@
 			"textures": {
 				"layer0": "vampiresneedumbrellas:items/netherite/gray"
 			}
+		},
+		"ground": {
+			"parent": "item/generated",
+			"textures": {
+				"layer0": "vampiresneedumbrellas:items/netherite/gray"
+			}
 		}
 	}
 }

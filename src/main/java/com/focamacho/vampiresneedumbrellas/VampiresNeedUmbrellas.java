@@ -6,10 +6,10 @@ import com.focamacho.vampiresneedumbrellas.handlers.CuriosHandler;
 import com.focamacho.vampiresneedumbrellas.handlers.ModObjects;
 import com.focamacho.vampiresneedumbrellas.handlers.TooltipHandler;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
-import net.minecraft.inventory.container.PlayerContainer;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.InventoryMenu;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -44,7 +44,7 @@ public class VampiresNeedUmbrellas {
         if(Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble) CuriosHandler.registerUmbrellaCurios();
     }
 
-    public static final ItemGroup CREATIVETAB = new ItemGroup(VampiresNeedUmbrellas.MODID) {
+    public static final CreativeModeTab CREATIVETAB = new CreativeModeTab(VampiresNeedUmbrellas.MODID) {
 
         @Override
         public ItemStack makeIcon() {
@@ -59,7 +59,7 @@ public class VampiresNeedUmbrellas {
         @SubscribeEvent
         public static void stitchTextures(TextureStitchEvent.Pre evt) {
             if (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble) {
-                if (evt.getMap().location() == PlayerContainer.BLOCK_ATLAS) {
+                if (evt.getMap().location() == InventoryMenu.BLOCK_ATLAS) {
                     evt.addSprite(new ResourceLocation(MODID, "curios"));
                 }
             }

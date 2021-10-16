@@ -588,6 +588,12 @@
 			"textures": {
 				"layer0": "vampiresneedumbrellas:items/creative"
 			}
+		},
+		"ground": {
+			"parent": "item/generated",
+			"textures": {
+				"layer0": "vampiresneedumbrellas:items/creative"
+			}
 		}
 	}
 }

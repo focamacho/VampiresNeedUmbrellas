@@ -4,11 +4,11 @@ import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.handlers.ModObjects;
 import com.focamacho.vampiresneedumbrellas.handlers.VampirismHandler;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
-import net.minecraft.entity.Entity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -23,7 +23,7 @@ public class ItemIronUmbrella extends Item {
 
 	@ParametersAreNonnullByDefault
 	@Override
-	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+	public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if(Utils.isVampirismLoaded) VampirismHandler.applyEffect(stack, worldIn, entityIn, isDamageable(stack));
 	}
 	

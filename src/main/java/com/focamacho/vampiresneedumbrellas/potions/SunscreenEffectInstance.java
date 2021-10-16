@@ -1,14 +1,13 @@
 package com.focamacho.vampiresneedumbrellas.potions;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectInstance;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class SunscreenEffectInstance extends EffectInstance {
+public class SunscreenEffectInstance extends MobEffectInstance {
 
-    public SunscreenEffectInstance(Effect sunscreenEffect) {
+    public SunscreenEffectInstance(MobEffect sunscreenEffect) {
         super(sunscreenEffect, 21, 5, false, false);
     }
 

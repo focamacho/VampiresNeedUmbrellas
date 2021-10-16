@@ -587,6 +587,12 @@
 			"textures": {
 				"layer0": "vampiresneedumbrellas:items/diamond/black"
 			}
+		},
+		"ground": {
+			"parent": "item/generated",
+			"textures": {
+				"layer0": "vampiresneedumbrellas:items/diamond/black"
+			}
 		}
 	}
 }
