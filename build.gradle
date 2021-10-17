@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.0'
+version = '1.1'
 group = 'com.focamacho'
 
 java {
@@ -73,7 +73,7 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.17.1-37.0.81'
 
     //Vampirism
-    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.17.1-1.8.3-alpha+20211003-1844:api') { transitive = false;}
+    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.17.1-1.8.3-alpha+20211003-1844') { transitive = false;}
     runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.17.1-1.8.3-alpha+20211003-1844') { transitive = false; }
 
     //Curios

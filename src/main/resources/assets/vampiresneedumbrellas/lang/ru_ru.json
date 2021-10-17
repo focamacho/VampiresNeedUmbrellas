@@ -75,5 +75,7 @@
 	"item.vampiresneedumbrellas.gold_umbrella_rod": "Жезл золотого зонта",
 	"item.vampiresneedumbrellas.diamond_umbrella_rod": "Жезл алмазного зонта",
 
+	"modifiers.vampiresneedumbrellas.use": "When in Use:",
+
 	"curios.identifier.umbrella": "зонта"
 }

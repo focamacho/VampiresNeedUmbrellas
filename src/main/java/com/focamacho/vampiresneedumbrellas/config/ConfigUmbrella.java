@@ -3,6 +3,7 @@ package com.focamacho.vampiresneedumbrellas.config;
 import com.focamacho.vampiresneedumbrellas.VampiresNeedUmbrellas;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
+import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 
 public class ConfigUmbrella {
@@ -16,7 +17,12 @@ public class ConfigUmbrella {
 	public static IntValue configGoldUmbrellaDurability;
 	public static IntValue configDiamondUmbrellaDurability;
 	public static IntValue configNetheriteUmbrellaDurability;
-	
+
+	public static DoubleValue configIronUmbrellaSpeed;
+	public static DoubleValue configGoldUmbrellaSpeed;
+	public static DoubleValue configDiamondUmbrellaSpeed;
+	public static DoubleValue configNetheriteUmbrellaSpeed;
+
 	public static BooleanValue configUmbrellaMainHand;
 	public static BooleanValue configUmbrellaOffHand;
 	public static BooleanValue configUmbrellaAnvil;
@@ -44,6 +50,25 @@ public class ConfigUmbrella {
 					.comment("The durability in seconds of the Netherite Umbrella when in the sun. Set to -1 if you want it to be unbreakable")
 					.translation(VampiresNeedUmbrellas.MODID + ".config.netheriteUmbrellaDurability")
 					.defineInRange("netheriteUmbrellaDurability", 14400, -1, 432000);
+			builder.pop();
+
+			builder.push("Umbrellas Speed");
+			configIronUmbrellaSpeed = builder
+					.comment("The Speed Modifier of the Umbrella. Set to 0 to disable.")
+					.translation(VampiresNeedUmbrellas.MODID + ".config.ironUmbrellaSpeed")
+					.defineInRange("ironUmbrellaSpeed", -0.35D, -1D, 1D);
+			configGoldUmbrellaSpeed = builder
+					.comment("The Speed Modifier of the Umbrella. Set to 0 to disable.")
+					.translation(VampiresNeedUmbrellas.MODID + ".config.goldUmbrellaSpeed")
+					.defineInRange("goldUmbrellaSpeed", -0.35D, -1D, 1D);
+			configDiamondUmbrellaSpeed = builder
+					.comment("The Speed Modifier of the Umbrella. Set to 0 to disable.")
+					.translation(VampiresNeedUmbrellas.MODID + ".config.diamondUmbrellaSpeed")
+					.defineInRange("diamondUmbrellaSpeed", -0.35D, -1D, 1D);
+			configNetheriteUmbrellaSpeed = builder
+					.comment("The Speed Modifier of the Umbrella. Set to 0 to disable.")
+					.translation(VampiresNeedUmbrellas.MODID + ".config.netheriteUmbrellaSpeed")
+					.defineInRange("netheriteUmbrellaSpeed", -0.35D, -1D, 1D);
 			builder.pop();
 			
 			builder.push("Umbrellas Mechanics");
