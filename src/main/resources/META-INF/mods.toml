@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[35,)"
+loaderVersion="[36,)"
 issueTrackerURL="https://github.com/Focamacho/VampiresNeedUmbrellas/issues"
 license = "MIT-1.0"
 [[mods]]
@@ -20,12 +20,12 @@ And each type of umbrella is available in 16 different colors.
     modId="vampirism"
     mandatory=false
     versionRange="[1,)"
-    ordering="BEFORE"
+    ordering="AFTER"
     side="BOTH"
 
 [[dependencies.vampiresneedumbrellas]]
     modId="curios"
     mandatory=false
     versionRange="[1,)"
-    ordering="BEFORE"
+    ordering="AFTER"
     side="BOTH"

@@ -75,5 +75,7 @@
 	"item.vampiresneedumbrellas.gold_umbrella_rod": "金阳伞杖",
 	"item.vampiresneedumbrellas.diamond_umbrella_rod": "钻石阳伞杖",
 
+	"modifiers.vampiresneedumbrellas.use": "When in Use:",
+
 	"curios.identifier.umbrella": "Umbrella"
 }

@@ -7,6 +7,11 @@ public class ConfigHolder {
 	public static int diamondUmbrellaDurability = ConfigUmbrella.configDiamondUmbrellaDurability.get();
 	public static int netheriteUmbrellaDurability = ConfigUmbrella.configNetheriteUmbrellaDurability.get();
 
+	public static double ironUmbrellaSpeed = ConfigUmbrella.configIronUmbrellaDurability.get();
+	public static double goldUmbrellaSpeed = ConfigUmbrella.configGoldUmbrellaDurability.get();
+	public static double diamondUmbrellaSpeed = ConfigUmbrella.configDiamondUmbrellaDurability.get();
+	public static double netheriteUmbrellaSpeed = ConfigUmbrella.configNetheriteUmbrellaDurability.get();
+
 	public static boolean umbrellaMainHand = ConfigUmbrella.configUmbrellaMainHand.get();
 	public static boolean umbrellaOffHand = ConfigUmbrella.configUmbrellaOffHand.get();
 	public static boolean umbrellaAnvil = ConfigUmbrella.configUmbrellaAnvil.get();
@@ -20,6 +25,11 @@ public class ConfigHolder {
 		goldUmbrellaDurability = ConfigUmbrella.configGoldUmbrellaDurability.get();
 		diamondUmbrellaDurability = ConfigUmbrella.configDiamondUmbrellaDurability.get();
 		netheriteUmbrellaDurability = ConfigUmbrella.configNetheriteUmbrellaDurability.get();
+
+		ironUmbrellaSpeed = ConfigUmbrella.configIronUmbrellaSpeed.get();
+		goldUmbrellaSpeed = ConfigUmbrella.configGoldUmbrellaSpeed.get();
+		diamondUmbrellaSpeed = ConfigUmbrella.configDiamondUmbrellaSpeed.get();
+		netheriteUmbrellaSpeed = ConfigUmbrella.configNetheriteUmbrellaSpeed.get();
 		
 		umbrellaMainHand = ConfigUmbrella.configUmbrellaMainHand.get();
 		umbrellaOffHand = ConfigUmbrella.configUmbrellaOffHand.get();
