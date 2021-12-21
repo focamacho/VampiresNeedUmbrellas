@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ObjectHolder;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
+import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.Optional;
 
@@ -41,7 +42,7 @@ public class VampirismHandler {
 						String id = umbrella.getLeft();
 						Integer index = umbrella.getMiddle();
 
-						stack.hurtAndBreak(1, player, consumer -> CuriosHandler.onBrokenCurio(id, index, consumer));
+						stack.hurtAndBreak(1, player, consumer -> CuriosHandler.onBrokenCurio(new SlotContext(id, player, index, false, false)));
 					}
 				}
 			}

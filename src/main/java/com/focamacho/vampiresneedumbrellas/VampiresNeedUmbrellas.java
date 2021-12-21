@@ -58,7 +58,7 @@ public class VampiresNeedUmbrellas {
         @SubscribeEvent
         public static void stitchTextures(TextureStitchEvent.Pre evt) {
             if (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble) {
-                if (evt.getMap().location() == InventoryMenu.BLOCK_ATLAS) {
+                if (evt.getAtlas().location() == InventoryMenu.BLOCK_ATLAS) {
                     evt.addSprite(new ResourceLocation(MODID, "curios"));
                 }
             }

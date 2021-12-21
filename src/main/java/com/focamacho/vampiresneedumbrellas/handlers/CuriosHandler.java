@@ -6,6 +6,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -25,6 +26,7 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -34,8 +36,8 @@ public class CuriosHandler {
         InterModComms.sendTo("curios", "register_type", () -> new SlotTypeMessage.Builder("umbrella").size(1).icon(new ResourceLocation(VampiresNeedUmbrellas.MODID, "curios")).build());
     }
 
-    public static void onBrokenCurio(String id, int index, Player consumer) {
-        CuriosApi.getCuriosHelper().onBrokenCurio(id, index, consumer);
+    public static void onBrokenCurio(SlotContext slotContext) {
+        CuriosApi.getCuriosHelper().onBrokenCurio(slotContext);
     }
 
     public static Optional<ImmutableTriple<String, Integer, ItemStack>> getUmbrellaEquiped(ItemStack umbrella, Player player) {
@@ -63,8 +65,9 @@ public class CuriosHandler {
                 }
 
                 @Override
-                public boolean showAttributesTooltip(String identifier) {
-                    return false;
+                public List<Component> getAttributesTooltip(List<Component> tooltips) {
+                    tooltips.clear();
+                    return tooltips;
                 }
 
             });
