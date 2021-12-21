@@ -7,6 +7,7 @@ import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -93,4 +94,15 @@ public class ItemUmbrella extends Item {
         return ConfigHolder.umbrellaRepair && repair.getItem().equals(repairItem);
     }
 
+    @Override
+    public int getBarWidth(ItemStack stack) {
+        return Math.round(13.0F - (float)stack.getDamageValue() * 13.0F / (float)this.getMaxDamage(stack));
+    }
+
+    @ParametersAreNonnullByDefault
+    @Override
+    public int getBarColor(ItemStack stack) {
+        float f = Math.max(0.0F, ((float)this.getMaxDamage(stack) - (float)stack.getDamageValue()) / (float)this.getMaxDamage(stack));
+        return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
+    }
 }
