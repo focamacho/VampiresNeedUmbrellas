@@ -36,8 +36,8 @@ public class CuriosHandler {
         InterModComms.sendTo("curios", "register_type", () -> new SlotTypeMessage.Builder("umbrella").size(1).icon(new ResourceLocation(VampiresNeedUmbrellas.MODID, "curios")).build());
     }
 
-    public static void onBrokenCurio(SlotContext slotContext) {
-        CuriosApi.getCuriosHelper().onBrokenCurio(slotContext);
+    public static void onBrokenCurio(String id, int index, Player consumer) {
+        CuriosApi.getCuriosHelper().onBrokenCurio(new SlotContext(id, consumer, index, false, false));
     }
 
     public static Optional<ImmutableTriple<String, Integer, ItemStack>> getUmbrellaEquiped(ItemStack umbrella, Player player) {
