@@ -31,10 +31,8 @@ public class ItemUmbrella extends Item {
     private final Supplier<Double> speedSupplier;
     private final Item repairItem;
 
-    public ItemUmbrella(Item.Properties builder, String name, Supplier<Integer> durabilitySupplier, Supplier<Double> speedSupplier, Item repairItem) {
+    public ItemUmbrella(Item.Properties builder, Supplier<Integer> durabilitySupplier, Supplier<Double> speedSupplier, Item repairItem) {
         super(builder);
-        this.setRegistryName(name);
-
         this.durabilitySupplier = durabilitySupplier;
         this.speedSupplier = speedSupplier;
         this.repairItem = repairItem;
@@ -66,11 +64,6 @@ public class ItemUmbrella extends Item {
     @Override
     public int getMaxDamage(ItemStack stack) {
         return durabilitySupplier.get();
-    }
-
-    @Override
-    public int getItemStackLimit(ItemStack stack) {
-        return 1;
     }
 
     @Override

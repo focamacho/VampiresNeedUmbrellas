@@ -7,26 +7,32 @@ import com.focamacho.vampiresneedumbrellas.items.ItemRod;
 import com.focamacho.vampiresneedumbrellas.items.ItemUmbrella;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModObjects {
 
-	public static void initItems(IForgeRegistry<Item> registry) {
+	private static final DeferredRegister<Item> registry = DeferredRegister.create(ForgeRegistries.ITEMS, VampiresNeedUmbrellas.MODID);
+
+	public static void initItems(IEventBus bus) {
 		//Umbrellas
 		for (int i = 0; i < 16; i++) {
-			registry.register(new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB), getColorForNumber(i) + "iron_umbrella", () -> ConfigHolder.ironUmbrellaDurability, () -> ConfigHolder.ironUmbrellaSpeed, Items.IRON_INGOT));
-			registry.register(new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB), getColorForNumber(i) + "gold_umbrella", () -> ConfigHolder.goldUmbrellaDurability, () -> ConfigHolder.goldUmbrellaSpeed, Items.GOLD_INGOT));
-			registry.register(new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB), getColorForNumber(i) + "diamond_umbrella", () -> ConfigHolder.diamondUmbrellaDurability, () -> ConfigHolder.diamondUmbrellaSpeed, Items.DIAMOND));
-			registry.register(new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB), getColorForNumber(i) + "netherite_umbrella", () -> ConfigHolder.netheriteUmbrellaDurability, () -> ConfigHolder.netheriteUmbrellaSpeed, Items.NETHERITE_INGOT));
+			registry.register(getColorForNumber(i) + "iron_umbrella", () -> new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB).stacksTo(1), () -> ConfigHolder.ironUmbrellaDurability, () -> ConfigHolder.ironUmbrellaSpeed, Items.IRON_INGOT));
+			registry.register(getColorForNumber(i) + "gold_umbrella", () -> new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB).stacksTo(1), () -> ConfigHolder.goldUmbrellaDurability, () -> ConfigHolder.goldUmbrellaSpeed, Items.GOLD_INGOT));
+			registry.register(getColorForNumber(i) + "diamond_umbrella", () -> new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB).stacksTo(1), () -> ConfigHolder.diamondUmbrellaDurability, () -> ConfigHolder.diamondUmbrellaSpeed, Items.DIAMOND));
+			registry.register(getColorForNumber(i) + "netherite_umbrella", () -> new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB).stacksTo(1), () -> ConfigHolder.netheriteUmbrellaDurability, () -> ConfigHolder.netheriteUmbrellaSpeed, Items.NETHERITE_INGOT));
 		}
 
 		//Creative Umbrella
-		registry.register(new ItemCreativeUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB)));
+		registry.register("creative_umbrella", () -> new ItemCreativeUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB).stacksTo(1)));
 
 		//Umbrella Rods
-		registry.register(new ItemRod(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB), "iron_umbrella_rod"));
-		registry.register(new ItemRod(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB), "gold_umbrella_rod"));
-		registry.register(new ItemRod(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB), "diamond_umbrella_rod"));
+		registry.register("iron_umbrella_rod", () -> new ItemRod(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB)));
+		registry.register("gold_umbrella_rod", () -> new ItemRod(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB)));
+		registry.register("diamond_umbrella_rod", () -> new ItemRod(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB)));
+
+		registry.register(bus);
 	}
 
 	private static String getColorForNumber(int number) {

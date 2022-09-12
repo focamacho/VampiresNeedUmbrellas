@@ -17,11 +17,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fml.InterModComms;
-import org.apache.commons.lang3.tuple.ImmutableTriple;
-import top.theillusivec4.curios.api.CuriosApi;
-import top.theillusivec4.curios.api.CuriosCapability;
-import top.theillusivec4.curios.api.SlotContext;
-import top.theillusivec4.curios.api.SlotTypeMessage;
+import top.theillusivec4.curios.api.*;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import javax.annotation.Nonnull;
@@ -40,8 +36,8 @@ public class CuriosHandler {
         CuriosApi.getCuriosHelper().onBrokenCurio(new SlotContext(id, consumer, index, false, false));
     }
 
-    public static Optional<ImmutableTriple<String, Integer, ItemStack>> getUmbrellaEquiped(ItemStack umbrella, Player player) {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(umbrella.getItem(), player);
+    public static Optional<SlotResult> getUmbrellaEquiped(ItemStack umbrella, Player player) {
+        return CuriosApi.getCuriosHelper().findFirstCurio(player, umbrella.getItem());
     }
 
     public static ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt, UUID SPEED_ATTRIBUTE, double speed) {

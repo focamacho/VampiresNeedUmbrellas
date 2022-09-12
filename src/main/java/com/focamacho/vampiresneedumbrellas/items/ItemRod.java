@@ -4,9 +4,8 @@ import net.minecraft.world.item.Item;
 
 public class ItemRod extends Item {
 	
-	public ItemRod(Item.Properties properties, String name) {
+	public ItemRod(Item.Properties properties) {
 		super(properties);
-		this.setRegistryName(name);
 	}
 
 }

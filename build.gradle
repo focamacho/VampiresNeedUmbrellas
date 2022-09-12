@@ -13,12 +13,12 @@ version = '1.0'
 group = 'com.focamacho'
 
 java {
-    archivesBaseName = 'VampiresNeedUmbrellas-1.18.2'
+    archivesBaseName = 'VampiresNeedUmbrellas-1.19.2'
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: '1.19.2'
     runs {
         client {
             workingDirectory project.file('run')
@@ -70,15 +70,15 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.20'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.1.1'
 
     //Vampirism
-    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.18.2-1.8.2:api') { transitive = false;}
-    runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.18.2-1.8.2') { transitive = false; }
+    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.19.2-1.8.0-beta.1:api') { transitive = false;}
+    runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.19.2-1.8.0-beta.1') { transitive = false; }
 
     //Curios
-    compileOnly fg.deobf('top.theillusivec4.curios:curios-forge:1.18.2-5.0.7.0:api')
-    runtimeOnly fg.deobf('top.theillusivec4.curios:curios-forge:1.18.2-5.0.7.0')
+    compileOnly fg.deobf('top.theillusivec4.curios:curios-forge:1.19.2-5.1.1.0:api')
+    runtimeOnly fg.deobf('top.theillusivec4.curios:curios-forge:1.19.2-5.1.1.0')
 
     compileOnly group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
 }

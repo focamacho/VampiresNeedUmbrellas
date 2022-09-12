@@ -11,14 +11,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ObjectHolder;
-import org.apache.commons.lang3.tuple.ImmutableTriple;
+import top.theillusivec4.curios.api.SlotResult;
 
 import java.util.Optional;
 
 public class VampirismHandler {
 
-	@ObjectHolder("vampirism:sunscreen")
-	private static MobEffect vampirism_sunscreen;
+	@ObjectHolder(registryName = "mob_effect", value = "vampirism:sunscreen")
+	public static MobEffect vampirism_sunscreen;
 
 	public static void applyEffect(ItemStack stack, Level world, Entity entityIn, boolean breakable) {
 		if (canApplyEffect(entityIn)) {
@@ -32,14 +32,14 @@ public class VampirismHandler {
 			}
 
 			if (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble) {
-				Optional<ImmutableTriple<String, Integer, ItemStack>> opt = CuriosHandler.getUmbrellaEquiped(stack, player);
+				Optional<SlotResult> opt = CuriosHandler.getUmbrellaEquiped(stack, player);
 				if(opt.isPresent()) {
-					ImmutableTriple<String, Integer, ItemStack> umbrella = opt.get();
+					SlotResult umbrella = opt.get();
 					player.addEffect(new SunscreenEffectInstance(vampirism_sunscreen));
 
 					if (breakable && VReference.VAMPIRE_FACTION.getPlayerCapability(player).map(v->v.isGettingSundamage(world)).orElse(false)) {
-						String id = umbrella.getLeft();
-						Integer index = umbrella.getMiddle();
+						String id = umbrella.slotContext().identifier();
+						int index = umbrella.slotContext().index();
 
 						stack.hurtAndBreak(1, player, consumer -> CuriosHandler.onBrokenCurio(id, index, consumer));
 					}

@@ -12,7 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ItemCreativeUmbrella extends ItemUmbrella {
 
 	public ItemCreativeUmbrella(Item.Properties builder) {
-		super(builder, "creative_umbrella", () -> -1, () -> 0D, null);
+		super(builder, () -> -1, () -> 0D, null);
 	}
 
 	@ParametersAreNonnullByDefault

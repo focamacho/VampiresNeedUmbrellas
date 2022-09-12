@@ -3,6 +3,7 @@ package com.focamacho.vampiresneedumbrellas;
 import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.config.ConfigUmbrella;
 import com.focamacho.vampiresneedumbrellas.handlers.CuriosHandler;
+import com.focamacho.vampiresneedumbrellas.handlers.ModObjects;
 import com.focamacho.vampiresneedumbrellas.handlers.TooltipHandler;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import net.minecraft.resources.ResourceLocation;
@@ -40,6 +41,8 @@ public class VampiresNeedUmbrellas {
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueue);
+
+        ModObjects.initItems(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
     }
