@@ -1,7 +1,7 @@
 {
   "credit": "Made with Blockbench",
   "texture_size": [16, 32],
-  "loader": "forge:separate-perspective",
+  "loader": "forge:separate_transforms",
   "gui_light":"front",
   "base": {
     "textures": {
@@ -65,13 +65,13 @@
     "gui": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "vampiresneedumbrellas:items/gold/rod"
+        "layer0": "vampiresneedumbrellas:item/gold/rod"
       }
     },
     "ground": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "vampiresneedumbrellas:items/gold/rod"
+        "layer0": "vampiresneedumbrellas:item/gold/rod"
       }
     }
   }

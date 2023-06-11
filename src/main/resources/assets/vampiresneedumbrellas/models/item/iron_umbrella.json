@@ -5,7 +5,7 @@
 	"base": {
 		"textures": {
 			"0": "block/iron_block",
-			"1": "block/light_blue_wool",
+			"1": "block/black_wool",
 			"particle": "block/iron_block"
 		},
 		"elements": [
@@ -585,13 +585,13 @@
 		"gui": {
 			"parent": "item/generated",
 			"textures": {
-				"layer0": "vampiresneedumbrellas:item/iron/light_blue"
+				"layer0": "vampiresneedumbrellas:item/iron/black"
 			}
 		},
 		"ground": {
 			"parent": "item/generated",
 			"textures": {
-				"layer0": "vampiresneedumbrellas:item/iron/light_blue"
+				"layer0": "vampiresneedumbrellas:item/iron/black"
 			}
 		}
 	}

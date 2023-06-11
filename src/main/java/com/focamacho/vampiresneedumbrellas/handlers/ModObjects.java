@@ -13,64 +13,48 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModObjects {
 
-	private static final DeferredRegister<Item> registry = DeferredRegister.create(ForgeRegistries.ITEMS, VampiresNeedUmbrellas.MODID);
+	public static final DeferredRegister<Item> registry = DeferredRegister.create(ForgeRegistries.ITEMS, VampiresNeedUmbrellas.MODID);
 
 	public static void initItems(IEventBus bus) {
 		//Umbrellas
 		for (int i = 0; i < 16; i++) {
-			registry.register(getColorForNumber(i) + "iron_umbrella", () -> new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB).stacksTo(1), () -> ConfigHolder.ironUmbrellaDurability, () -> ConfigHolder.ironUmbrellaSpeed, Items.IRON_INGOT));
-			registry.register(getColorForNumber(i) + "gold_umbrella", () -> new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB).stacksTo(1), () -> ConfigHolder.goldUmbrellaDurability, () -> ConfigHolder.goldUmbrellaSpeed, Items.GOLD_INGOT));
-			registry.register(getColorForNumber(i) + "diamond_umbrella", () -> new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB).stacksTo(1), () -> ConfigHolder.diamondUmbrellaDurability, () -> ConfigHolder.diamondUmbrellaSpeed, Items.DIAMOND));
-			registry.register(getColorForNumber(i) + "netherite_umbrella", () -> new ItemUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB).stacksTo(1), () -> ConfigHolder.netheriteUmbrellaDurability, () -> ConfigHolder.netheriteUmbrellaSpeed, Items.NETHERITE_INGOT));
+			registry.register(getColorForNumber(i) + "iron_umbrella", () -> new ItemUmbrella(new Item.Properties().stacksTo(1), () -> ConfigHolder.ironUmbrellaDurability, () -> ConfigHolder.ironUmbrellaSpeed, Items.IRON_INGOT));
+			registry.register(getColorForNumber(i) + "gold_umbrella", () -> new ItemUmbrella(new Item.Properties().stacksTo(1), () -> ConfigHolder.goldUmbrellaDurability, () -> ConfigHolder.goldUmbrellaSpeed, Items.GOLD_INGOT));
+			registry.register(getColorForNumber(i) + "diamond_umbrella", () -> new ItemUmbrella(new Item.Properties().stacksTo(1), () -> ConfigHolder.diamondUmbrellaDurability, () -> ConfigHolder.diamondUmbrellaSpeed, Items.DIAMOND));
+			registry.register(getColorForNumber(i) + "netherite_umbrella", () -> new ItemUmbrella(new Item.Properties().stacksTo(1), () -> ConfigHolder.netheriteUmbrellaDurability, () -> ConfigHolder.netheriteUmbrellaSpeed, Items.NETHERITE_INGOT));
 		}
 
 		//Creative Umbrella
-		registry.register("creative_umbrella", () -> new ItemCreativeUmbrella(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB).stacksTo(1)));
+		registry.register("creative_umbrella", () -> new ItemCreativeUmbrella(new Item.Properties().stacksTo(1)));
 
 		//Umbrella Rods
-		registry.register("iron_umbrella_rod", () -> new ItemRod(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB)));
-		registry.register("gold_umbrella_rod", () -> new ItemRod(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB)));
-		registry.register("diamond_umbrella_rod", () -> new ItemRod(new Item.Properties().tab(VampiresNeedUmbrellas.CREATIVETAB)));
+		registry.register("iron_umbrella_rod", () -> new ItemRod(new Item.Properties()));
+		registry.register("gold_umbrella_rod", () -> new ItemRod(new Item.Properties()));
+		registry.register("diamond_umbrella_rod", () -> new ItemRod(new Item.Properties()));
 
 		registry.register(bus);
 	}
 
 	private static String getColorForNumber(int number) {
-		switch(number){
-			case 0:
-				return "";
-			case 1:
-				return "red_";
-			case 2:
-				return "cactus_green_";
-			case 3:
-				return "brown_";
-			case 4:
-				return "lapis_blue_";
-			case 5:
-				return "purple_";
-			case 6:
-				return "cyan_";
-			case 7:
-				return "light_gray_";
-			case 8:
-				return "gray_";
-			case 9:
-				return "pink_";
-			case 10:
-				return "lime_green_";
-			case 11:
-				return "yellow_";
-			case 12:
-				return "light_blue_";
-			case 13:
-				return "magenta_";
-			case 14:
-				return "orange_";
-			case 15:
-				return "white_";
-		}
-		return "";
+		return switch (number) {
+			case 0 -> "";
+			case 1 -> "red_";
+			case 2 -> "cactus_green_";
+			case 3 -> "brown_";
+			case 4 -> "lapis_blue_";
+			case 5 -> "purple_";
+			case 6 -> "cyan_";
+			case 7 -> "light_gray_";
+			case 8 -> "gray_";
+			case 9 -> "pink_";
+			case 10 -> "lime_green_";
+			case 11 -> "yellow_";
+			case 12 -> "light_blue_";
+			case 13 -> "magenta_";
+			case 14 -> "orange_";
+			case 15 -> "white_";
+			default -> "";
+		};
 	}
 
 }

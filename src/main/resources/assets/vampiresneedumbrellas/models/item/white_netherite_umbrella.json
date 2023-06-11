@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"loader": "forge:separate-perspective",
+	"loader": "forge:separate_transforms",
 	"gui_light":"front",
 	"base": {
 		"textures": {
@@ -585,13 +585,13 @@
 		"gui": {
 			"parent": "item/generated",
 			"textures": {
-				"layer0": "vampiresneedumbrellas:items/netherite/white"
+				"layer0": "vampiresneedumbrellas:item/netherite/white"
 			}
 		},
 		"ground": {
 			"parent": "item/generated",
 			"textures": {
-				"layer0": "vampiresneedumbrellas:items/netherite/white"
+				"layer0": "vampiresneedumbrellas:item/netherite/white"
 			}
 		}
 	}
