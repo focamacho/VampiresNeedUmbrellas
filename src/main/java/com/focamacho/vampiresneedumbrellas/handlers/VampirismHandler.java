@@ -31,7 +31,7 @@ public class VampirismHandler {
 				return;
 			}
 
-			if (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble) {
+			if (Utils.isCuriosLoaded) {
 				Optional<SlotResult> opt = CuriosHandler.getUmbrellaEquiped(stack, player);
 				if(opt.isPresent()) {
 					SlotResult umbrella = opt.get();
@@ -53,9 +53,9 @@ public class VampirismHandler {
 			Player player = (Player)entityIn;
 			if ((ConfigHolder.creativeUmbrellaConfigs && ((ConfigHolder.umbrellaMainHand && player.getMainHandItem().equals(stack)) || (ConfigHolder.umbrellaOffHand && player.getOffhandItem().equals(stack))))) {
 				player.addEffect(new SunscreenEffectInstance(vampirism_sunscreen));
-			} else if ((player.getMainHandItem().equals(stack) || player.getOffhandItem().equals(stack) || (Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble && CuriosHandler.getUmbrellaEquiped(stack, player).isPresent()))) {
+			} else if ((player.getMainHandItem().equals(stack) || player.getOffhandItem().equals(stack) || (Utils.isCuriosLoaded && CuriosHandler.getUmbrellaEquiped(stack, player).isPresent()))) {
 				player.addEffect(new SunscreenEffectInstance(vampirism_sunscreen));
-			} else if(Utils.isCuriosLoaded && ConfigHolder.umbrellaBauble && CuriosHandler.getUmbrellaEquiped(stack, player).isPresent()) {
+			} else if(Utils.isCuriosLoaded && CuriosHandler.getUmbrellaEquiped(stack, player).isPresent()) {
 				player.addEffect(new SunscreenEffectInstance(vampirism_sunscreen));
 			}
 		}

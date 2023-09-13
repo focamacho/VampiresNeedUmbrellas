@@ -15,7 +15,6 @@ public class ConfigHolder {
 	public static boolean umbrellaMainHand = ConfigUmbrella.configUmbrellaMainHand.get();
 	public static boolean umbrellaOffHand = ConfigUmbrella.configUmbrellaOffHand.get();
 	public static boolean umbrellaAnvil = ConfigUmbrella.configUmbrellaAnvil.get();
-	public static boolean umbrellaBauble = ConfigUmbrella.configUmbrellaBauble.get();
 	public static boolean umbrellaRepair = ConfigUmbrella.configUmbrellaRepair.get();
 	
 	public static boolean creativeUmbrellaConfigs = ConfigUmbrella.configCreativeUmbrellaConfigs.get();
@@ -34,7 +33,6 @@ public class ConfigHolder {
 		umbrellaMainHand = ConfigUmbrella.configUmbrellaMainHand.get();
 		umbrellaOffHand = ConfigUmbrella.configUmbrellaOffHand.get();
 		umbrellaAnvil = ConfigUmbrella.configUmbrellaAnvil.get();
-		umbrellaBauble = ConfigUmbrella.configUmbrellaBauble.get();
 		umbrellaRepair = ConfigUmbrella.configUmbrellaRepair.get();
 		
 		creativeUmbrellaConfigs = ConfigUmbrella.configCreativeUmbrellaConfigs.get();

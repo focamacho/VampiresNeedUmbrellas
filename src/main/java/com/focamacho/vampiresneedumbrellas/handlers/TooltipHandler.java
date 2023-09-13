@@ -29,7 +29,7 @@ public class TooltipHandler {
                 String string = text.getString();
 
                 if (Utils.isCuriosLoaded) {
-                    if (!ConfigHolder.umbrellaBauble && string.contains(Component.translatable("curios.slot").getString())) {
+                    if (string.contains(Component.translatable("curios.slot").getString())) {
                         indexesToRemove.add(i);
                         continue;
                     }
