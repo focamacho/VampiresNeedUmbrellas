@@ -1,89 +1,60 @@
-buildscript {
-    repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
+plugins {
+    id 'java-library'
+    id 'eclipse'
+    id 'idea'
+    id 'net.neoforged.gradle.userdev' version '7.0.80'
 }
-apply plugin: 'net.minecraftforge.gradle'
 
 version = '1.0'
 group = 'com.focamacho'
 
 java {
-    archivesBaseName = 'VampiresNeedUmbrellas-1.20.1'
+    archivesBaseName = 'VampiresNeedUmbrellas-1.20.4'
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
-minecraft {
-    mappings channel: 'official', version: '1.20.1'
-    runs {
-        client {
-            workingDirectory project.file('run')
+runs {
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+        modSource project.sourceSets.main
+    }
 
-            mods {
-                vampiresneedumbrellas {
-                    source sourceSets.main
-                }
-            }
-        }
+    client {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
 
-        server {
-            workingDirectory project.file('run')
+    server {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+        programArgument '--nogui'
+    }
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+    gameTestServer {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
 
-            mods {
-                vampiresneedumbrellas {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
-            args '--mod', 'vampiresneedumbrellas', '--all', '--output', file('src/generated/resources/')
-
-            mods {
-                vampiresneedumbrellas {
-                    source sourceSets.main
-                }
-            }
-        }
+    data {
+       programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
     }
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.20.1-47.1.0'
+    implementation "net.neoforged:neoforge:${neo_version}"
 
     //Vampirism
-    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.20.1-1.9.1:api') { transitive = false;}
-    runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.20.1-1.9.1') { transitive = false; }
+    compileOnly('de.teamlapen.vampirism:Vampirism:1.20.4-1.10.0-beta.2:api') { transitive = false }
+    runtimeOnly('de.teamlapen.vampirism:Vampirism:1.20.4-1.10.0-beta.2') { transitive = false}
 
     //Curios
-    compileOnly fg.deobf('top.theillusivec4.curios:curios-forge:5.3.1+1.20.1:api')
-    runtimeOnly fg.deobf('top.theillusivec4.curios:curios-forge:5.3.1+1.20.1')
+    compileOnly 'top.theillusivec4.curios:curios-neoforge:7.3.2+1.20.4:api'
+    runtimeOnly 'top.theillusivec4.curios:curios-neoforge:7.3.2+1.20.4'
 
     compileOnly group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
 }
 
 repositories {
+    mavenLocal()
     maven {
         url = "https://maven.theillusivec4.top/"
     }
@@ -92,22 +63,23 @@ repositories {
     }
 }
 
-jar {
-    manifest {
-        attributes([
-                "Specification-Title": "vampiresneedumbrellas",
-                "Specification-Vendor": "vampiresneedumbrellas",
-                "Specification-Version": "1",
-                "Implementation-Title": project.name,
-                "Implementation-Version": "${version}",
-                "Implementation-Vendor" :"vampiresneedumbrellas",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
+            neo_version         : neo_version, neo_version_range: neo_version_range,
+            loader_version_range: loader_version_range,
+            mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors         : mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/mods.toml']) {
+        expand replaceProperties + [project: project]
     }
 }
 
-def reobfFile = file("$buildDir/reobfJar/output.jar")
-def reobfArtifact = artifacts.add('default', reobfFile) {
-    type 'jar'
-    builtBy 'reobfJar'
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }

@@ -1,7 +1,7 @@
 {
   "credit": "Made with Blockbench",
   "texture_size": [16, 32],
-  "loader": "forge:separate_transforms",
+  "loader": "neoforge:separate_transforms",
   "gui_light":"front",
   "base": {
     "textures": {

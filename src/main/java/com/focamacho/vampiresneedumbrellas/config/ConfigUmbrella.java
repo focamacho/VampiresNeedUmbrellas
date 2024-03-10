@@ -1,37 +1,35 @@
 package com.focamacho.vampiresneedumbrellas.config;
 
 import com.focamacho.vampiresneedumbrellas.VampiresNeedUmbrellas;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
-import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
-import net.minecraftforge.common.ForgeConfigSpec.IntValue;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec.DoubleValue;
 
 public class ConfigUmbrella {
 	
-	private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+	private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 	private static final General GENERAL = new General(BUILDER);
-	public static final ForgeConfigSpec spec = BUILDER.build();
+	public static final ModConfigSpec spec = BUILDER.build();
 	
 	//Config Values
-	public static IntValue configIronUmbrellaDurability;
-	public static IntValue configGoldUmbrellaDurability;
-	public static IntValue configDiamondUmbrellaDurability;
-	public static IntValue configNetheriteUmbrellaDurability;
+	public static ModConfigSpec.IntValue configIronUmbrellaDurability;
+	public static ModConfigSpec.IntValue configGoldUmbrellaDurability;
+	public static ModConfigSpec.IntValue configDiamondUmbrellaDurability;
+	public static ModConfigSpec.IntValue configNetheriteUmbrellaDurability;
 
 	public static DoubleValue configIronUmbrellaSpeed;
 	public static DoubleValue configGoldUmbrellaSpeed;
 	public static DoubleValue configDiamondUmbrellaSpeed;
 	public static DoubleValue configNetheriteUmbrellaSpeed;
 
-	public static BooleanValue configUmbrellaMainHand;
-	public static BooleanValue configUmbrellaOffHand;
-	public static BooleanValue configUmbrellaAnvil;
-	public static BooleanValue configUmbrellaRepair;
+	public static ModConfigSpec.BooleanValue configUmbrellaMainHand;
+	public static ModConfigSpec.BooleanValue configUmbrellaOffHand;
+	public static ModConfigSpec.BooleanValue configUmbrellaAnvil;
+	public static ModConfigSpec.BooleanValue configUmbrellaRepair;
 
-	public static BooleanValue configCreativeUmbrellaConfigs;
+	public static ModConfigSpec.BooleanValue configCreativeUmbrellaConfigs;
 	
 	public static class General {
-		public General(final ForgeConfigSpec.Builder builder) {
+		public General(final ModConfigSpec.Builder builder) {
 			builder.push("Umbrellas Durability");
 			configIronUmbrellaDurability = builder
 					.comment("The durability in seconds of the Iron Umbrella when in the sun. Set to -1 if you want it to be unbreakable")

@@ -4,21 +4,22 @@ import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.potions.SunscreenEffectInstance;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import de.teamlapen.vampirism.api.VReference;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ObjectHolder;
 import top.theillusivec4.curios.api.SlotResult;
 
 import java.util.Optional;
 
 public class VampirismHandler {
 
-	@ObjectHolder(registryName = "mob_effect", value = "vampirism:sunscreen")
-	public static MobEffect vampirism_sunscreen;
+	public static MobEffect vampirism_sunscreen =
+			BuiltInRegistries.MOB_EFFECT.get(new ResourceLocation("vampirism:sunscreen"));
 
 	public static void applyEffect(ItemStack stack, Level world, Entity entityIn, boolean breakable) {
 		if (canApplyEffect(entityIn)) {

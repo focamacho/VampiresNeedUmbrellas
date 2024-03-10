@@ -1,12 +1,10 @@
 package com.focamacho.vampiresneedumbrellas.items;
 
 import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
-import com.focamacho.vampiresneedumbrellas.handlers.CuriosHandler;
 import com.focamacho.vampiresneedumbrellas.handlers.VampirismHandler;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -16,9 +14,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 import java.util.function.Supplier;
@@ -53,12 +49,6 @@ public class ItemUmbrella extends Item {
         }
 
         return attributes;
-    }
-
-    @Nullable
-    @Override
-    public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
-        return Utils.isCuriosLoaded ? CuriosHandler.initCapabilities(stack, nbt, SPEED_ATTRIBUTE, speedSupplier.get()) : super.initCapabilities(stack, nbt);
     }
 
     @Override

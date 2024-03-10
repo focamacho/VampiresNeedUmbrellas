@@ -5,15 +5,15 @@ import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.items.ItemCreativeUmbrella;
 import com.focamacho.vampiresneedumbrellas.items.ItemRod;
 import com.focamacho.vampiresneedumbrellas.items.ItemUmbrella;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModObjects {
 
-	public static final DeferredRegister<Item> registry = DeferredRegister.create(ForgeRegistries.ITEMS, VampiresNeedUmbrellas.MODID);
+	public static final DeferredRegister<Item> registry = DeferredRegister.create(Registries.ITEM, VampiresNeedUmbrellas.MODID);
 
 	public static void initItems(IEventBus bus) {
 		//Umbrellas
