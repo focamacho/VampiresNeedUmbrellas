@@ -7,6 +7,7 @@ import de.teamlapen.vampirism.api.VReference;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffect;
@@ -16,6 +17,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.apache.logging.log4j.core.jmx.Server;
 import top.theillusivec4.curios.api.SlotResult;
 
 import java.util.Optional;
@@ -23,7 +25,7 @@ import java.util.Optional;
 public class VampirismHandler {
 
 	public static Holder<MobEffect> vampirism_sunscreen =
-			BuiltInRegistries.MOB_EFFECT.getHolder(new ResourceLocation("vampirism:sunscreen")).orElse(null);
+			BuiltInRegistries.MOB_EFFECT.getHolder(ResourceLocation.parse("vampirism:sunscreen")).orElse(null);
 
 	public static void applyEffect(ItemStack stack, Level world, Entity entityIn, boolean breakable) {
 		if (canApplyEffect(entityIn)) {
@@ -47,7 +49,8 @@ public class VampirismHandler {
 						String id = umbrella.slotContext().identifier();
 						int index = umbrella.slotContext().index();
 
-						stack.hurtAndBreak(1, RandomSource.create(), player, () -> CuriosHandler.onBrokenCurio(id, index, player));
+						if(player.level() instanceof ServerLevel)
+							stack.hurtAndBreak(1, (ServerLevel) player.level(), player, (item) -> CuriosHandler.onBrokenCurio(id, index, player));
 					}
 				}
 			}

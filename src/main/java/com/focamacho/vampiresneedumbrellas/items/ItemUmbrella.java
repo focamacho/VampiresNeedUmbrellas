@@ -5,6 +5,7 @@ import com.focamacho.vampiresneedumbrellas.handlers.VampirismHandler;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -44,15 +45,16 @@ public class ItemUmbrella extends Item {
     }
 
     @Override
-    public ItemAttributeModifiers getAttributeModifiers(ItemStack stack) {
+    public ItemAttributeModifiers getDefaultAttributeModifiers(ItemStack stack) {
         ItemAttributeModifiers.Builder attributes = ItemAttributeModifiers.builder();
 
-        AttributeModifier modifier = new AttributeModifier(SPEED_ATTRIBUTE, "Umbrella Speed Modifier", speedSupplier.get(), AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
+        AttributeModifier modifier = new AttributeModifier(ResourceLocation.parse("vampiresneedumbrellas:umbrella_modifier"), speedSupplier.get(), AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
         attributes.add(Attributes.MOVEMENT_SPEED, modifier, EquipmentSlotGroup.MAINHAND);
         attributes.add(Attributes.MOVEMENT_SPEED, modifier, EquipmentSlotGroup.OFFHAND);
 
         return attributes.build();
     }
+
     @Override
     public int getMaxDamage(ItemStack stack) {
         return durabilitySupplier.get();

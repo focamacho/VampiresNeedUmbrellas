@@ -15,6 +15,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -31,7 +32,7 @@ public class VampiresNeedUmbrellas {
     public static final Supplier<CreativeModeTab> CREATIVE_TAB = CREATIVE_MODE_TAB_REGISTRY
             .register("creative_tab", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.vampiresneedumbrellas"))
-                    .icon(() -> new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation("vampiresneedumbrellas:iron_umbrella"))))
+                    .icon(() -> new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("vampiresneedumbrellas:iron_umbrella"))))
                     .displayItems((params, output) -> {
                         for (DeferredHolder<Item, ? extends Item> entry : ModObjects.registry.getEntries()) {
                             output.accept(entry.get());
@@ -41,9 +42,9 @@ public class VampiresNeedUmbrellas {
 
     public VampiresNeedUmbrellas(IEventBus bus) {
         ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.COMMON, ConfigUmbrella.spec);
-        ConfigHolder.updateConfigs();
 
         bus.addListener(this::doClientStuff);
+        bus.addListener(this::loadConfig);
 
         ModObjects.initItems(bus);
         CREATIVE_MODE_TAB_REGISTRY.register(bus);
@@ -51,6 +52,10 @@ public class VampiresNeedUmbrellas {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         NeoForge.EVENT_BUS.register(new TooltipHandler());
+    }
+
+    private void loadConfig(ModConfigEvent.Loading event) {
+        ConfigHolder.updateConfigs();
     }
 
 }
