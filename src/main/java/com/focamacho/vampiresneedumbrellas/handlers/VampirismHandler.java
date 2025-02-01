@@ -4,11 +4,15 @@ import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.potions.SunscreenEffectInstance;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
 import de.teamlapen.vampirism.api.VReference;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -18,8 +22,8 @@ import java.util.Optional;
 
 public class VampirismHandler {
 
-	public static MobEffect vampirism_sunscreen =
-			BuiltInRegistries.MOB_EFFECT.get(new ResourceLocation("vampirism:sunscreen"));
+	public static Holder<MobEffect> vampirism_sunscreen =
+			BuiltInRegistries.MOB_EFFECT.getHolder(new ResourceLocation("vampirism:sunscreen")).orElse(null);
 
 	public static void applyEffect(ItemStack stack, Level world, Entity entityIn, boolean breakable) {
 		if (canApplyEffect(entityIn)) {
@@ -27,7 +31,8 @@ public class VampirismHandler {
 			if ((ConfigHolder.umbrellaMainHand && player.getMainHandItem().equals(stack)) || (ConfigHolder.umbrellaOffHand && player.getOffhandItem().equals(stack))) {
 				player.addEffect(new SunscreenEffectInstance(vampirism_sunscreen));
 				if (breakable && VReference.VAMPIRE_FACTION.getPlayerCapability(player).map(v->v.isGettingSundamage(world)).orElse(false)) {
-					stack.hurtAndBreak(1, player, consumer -> consumer.broadcastBreakEvent(player.getUsedItemHand()));
+					stack.hurtAndBreak(1, player, player.getUsedItemHand() == InteractionHand.MAIN_HAND ?
+							EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
 				}
 				return;
 			}
@@ -42,7 +47,7 @@ public class VampirismHandler {
 						String id = umbrella.slotContext().identifier();
 						int index = umbrella.slotContext().index();
 
-						stack.hurtAndBreak(1, player, consumer -> CuriosHandler.onBrokenCurio(id, index, consumer));
+						stack.hurtAndBreak(1, RandomSource.create(), player, () -> CuriosHandler.onBrokenCurio(id, index, player));
 					}
 				}
 			}

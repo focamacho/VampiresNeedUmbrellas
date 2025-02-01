@@ -13,16 +13,15 @@ type="required"
 versionRange="${neo_version_range}"
 ordering="NONE"
 side="BOTH"
-[[dependencies.vampiresneedumbrellas]]
+[[dependencies.${mod_id}]]
     modId="vampirism"
-    mandatory=false
+    type="optional"
     versionRange="[1,)"
     ordering="AFTER"
     side="BOTH"
-
-[[dependencies.vampiresneedumbrellas]]
+[[dependencies.${mod_id}]]
     modId="curios"
-    mandatory=false
+    type="optional"
     versionRange="[1,)"
     ordering="AFTER"
     side="BOTH"

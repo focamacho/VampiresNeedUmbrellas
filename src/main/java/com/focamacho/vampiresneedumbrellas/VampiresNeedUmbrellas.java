@@ -40,7 +40,7 @@ public class VampiresNeedUmbrellas {
                     .build());
 
     public VampiresNeedUmbrellas(IEventBus bus) {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigUmbrella.spec);
+        ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.COMMON, ConfigUmbrella.spec);
         ConfigHolder.updateConfigs();
 
         bus.addListener(this::doClientStuff);

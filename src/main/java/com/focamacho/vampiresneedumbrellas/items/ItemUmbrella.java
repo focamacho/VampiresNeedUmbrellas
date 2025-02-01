@@ -8,11 +8,13 @@ import com.google.common.collect.Multimap;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -28,7 +30,8 @@ public class ItemUmbrella extends Item {
     private final Item repairItem;
 
     public ItemUmbrella(Item.Properties builder, Supplier<Integer> durabilitySupplier, Supplier<Double> speedSupplier, Item repairItem) {
-        super(builder);
+        // This durability is just to trick the ItemStack$isDamageableItem check
+        super(builder.durability(100));
         this.durabilitySupplier = durabilitySupplier;
         this.speedSupplier = speedSupplier;
         this.repairItem = repairItem;
@@ -41,16 +44,15 @@ public class ItemUmbrella extends Item {
     }
 
     @Override
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
-        Multimap<Attribute, AttributeModifier> attributes = HashMultimap.create();
+    public ItemAttributeModifiers getAttributeModifiers(ItemStack stack) {
+        ItemAttributeModifiers.Builder attributes = ItemAttributeModifiers.builder();
 
-        if (speedSupplier.get() != 0 && (slot == EquipmentSlot.MAINHAND || slot == EquipmentSlot.OFFHAND)) {
-            attributes.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(SPEED_ATTRIBUTE, "Umbrella Speed Modifier", speedSupplier.get(), AttributeModifier.Operation.MULTIPLY_BASE));
-        }
+        AttributeModifier modifier = new AttributeModifier(SPEED_ATTRIBUTE, "Umbrella Speed Modifier", speedSupplier.get(), AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
+        attributes.add(Attributes.MOVEMENT_SPEED, modifier, EquipmentSlotGroup.MAINHAND);
+        attributes.add(Attributes.MOVEMENT_SPEED, modifier, EquipmentSlotGroup.OFFHAND);
 
-        return attributes;
+        return attributes.build();
     }
-
     @Override
     public int getMaxDamage(ItemStack stack) {
         return durabilitySupplier.get();
