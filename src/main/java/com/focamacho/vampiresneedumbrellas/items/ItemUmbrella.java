@@ -3,19 +3,18 @@ package com.focamacho.vampiresneedumbrellas.items;
 import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.handlers.VampirismHandler;
 import com.focamacho.vampiresneedumbrellas.utils.Utils;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -63,6 +62,11 @@ public class ItemUmbrella extends Item {
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return ConfigHolder.umbrellaAnvil;
+    }
+
+    @Override
+    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
+        return enchantment.is(Enchantments.UNBREAKING) || enchantment.is(Enchantments.MENDING) || enchantment.is(Enchantments.VANISHING_CURSE);
     }
 
     @Override
