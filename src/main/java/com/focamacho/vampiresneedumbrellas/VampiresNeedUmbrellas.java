@@ -1,7 +1,9 @@
 package com.focamacho.vampiresneedumbrellas;
 
+import com.focamacho.vampiresneedumbrellas.compat.curios.CuriosListener;
 import com.focamacho.vampiresneedumbrellas.config.ConfigHolder;
 import com.focamacho.vampiresneedumbrellas.config.ConfigUmbrella;
+import com.focamacho.vampiresneedumbrellas.compat.curios.CuriosHandler;
 import com.focamacho.vampiresneedumbrellas.handlers.ModObjects;
 import com.focamacho.vampiresneedumbrellas.handlers.TooltipHandler;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -12,6 +14,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
@@ -45,6 +48,10 @@ public class VampiresNeedUmbrellas {
 
         bus.addListener(this::doClientStuff);
         bus.addListener(this::loadConfig);
+        if(ModList.get().isLoaded("curios")) {
+            bus.register(new CuriosHandler());
+            NeoForge.EVENT_BUS.register(new CuriosListener());
+        }
 
         ModObjects.initItems(bus);
         CREATIVE_MODE_TAB_REGISTRY.register(bus);

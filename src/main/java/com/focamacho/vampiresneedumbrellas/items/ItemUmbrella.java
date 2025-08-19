@@ -26,7 +26,7 @@ public class ItemUmbrella extends Item {
     private static final UUID SPEED_ATTRIBUTE = UUID.fromString("278caaa5-8912-490c-acb1-d3c10bac2150");
 
     private final Supplier<Integer> durabilitySupplier;
-    private final Supplier<Double> speedSupplier;
+    public final Supplier<Double> speedSupplier;
     private final Item repairItem;
 
     public ItemUmbrella(Item.Properties builder, Supplier<Integer> durabilitySupplier, Supplier<Double> speedSupplier, Item repairItem) {
