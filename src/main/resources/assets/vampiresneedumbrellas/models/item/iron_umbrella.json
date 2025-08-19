@@ -2,11 +2,19 @@
 	"credit": "Made with Blockbench",
 	"loader": "neoforge:separate_transforms",
 	"gui_light":"front",
+    "textures": {
+      "layer0": "block/iron_block",
+      "particle": "block/iron_block"
+    },
+    "textures": {
+	  "layer0": "block/iron_block",
+      "particle": "block/iron_block"
+    },
 	"base": {
 		"textures": {
 			"0": "block/iron_block",
 			"1": "block/black_wool",
-			"particle": "block/iron_block"
+			"layer0": "block/iron_block"
 		},
 		"elements": [
 			{

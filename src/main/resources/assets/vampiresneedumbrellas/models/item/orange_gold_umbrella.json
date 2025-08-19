@@ -2,6 +2,10 @@
 	"credit": "Made with Blockbench",
 	"loader": "neoforge:separate_transforms",
 	"gui_light":"front",
+    "textures": {
+	  "layer0": "block/gold_block",
+      "particle": "block/gold_block"
+    },
 	"base": {
 		"textures": {
 			"0": "block/gold_block",

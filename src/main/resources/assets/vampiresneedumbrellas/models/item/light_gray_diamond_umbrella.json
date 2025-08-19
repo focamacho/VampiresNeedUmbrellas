@@ -2,6 +2,10 @@
 	"credit": "Made with Blockbench",
 	"loader": "neoforge:separate_transforms",
 	"gui_light":"front",
+    "textures": {
+	  "layer0": "block/diamond_block",
+      "particle": "block/diamond_block"
+    },
 	"base": {
 		"textures": {
 			"0": "block/diamond_block",
